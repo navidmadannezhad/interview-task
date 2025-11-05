@@ -5,7 +5,11 @@ interface FooterProps{};
 
 const Footer: FC<FooterProps> = (props) => {
     return(
-        <>صفحه محصول</>
+        <footer
+            // className={styles.header}
+        >
+            Footer
+        </footer>
     )
 }
 

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* @import "./fonts.css"; */
+/* @import ./fonts.css; */
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -16,28 +16,28 @@
 } */
 
 :root {
-    --primary-light: "#E6A3E3";
-    --primary-main: "#b607b0";
-    --primary-dark: "#590556";
-    --primary-contrast-text: "#ffffff";
+    --primary-light: #E6A3E3;
+    --primary-main: #b607b0;
+    --primary-dark: #590556;
+    --primary-contrast-text: #ffffff;
 
-    --secondary-light: "#590556";
-    --secondary-main: "#590556";
-    --secondary-dark: "#590556";
-    --secondary-contrast-text: "#590556";
+    --secondary-light: #590556;
+    --secondary-main: #590556;
+    --secondary-dark: #590556;
+    --secondary-contrast-text: #590556;
 
-    --background-main: "#FFFFFF";
-    --background-contrast-text: "#242424";
+    --background-main: #FFFFFF;
+    --background-contrast-text: #242424;
 
-    --danger-light: "#F5A4A4";
-    --danger-main: "#F23A3A";
-    --danger-dark: "#B81414";
-    --danger-contrast-text: "#ffffff";
+    --danger-light: #F5A4A4;
+    --danger-main: #F23A3A;
+    --danger-dark: #B81414;
+    --danger-contrast-text: #ffffff;
 
-    --success-light: "#A6F5BE";
-    --success-main: "#34BA5C";
-    --success-dark: "#167833";
-    --success-contrast-text: "#ffffff";
+    --success-light: #A6F5BE;
+    --success-main: #34BA5C;
+    --success-dark: #167833;
+    --success-contrast-text: #ffffff;
 }
 
 * {
