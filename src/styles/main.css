@@ -1,0 +1,56 @@
+@import "tailwindcss";
+/* @import "./fonts.css"; */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+/* @theme inline {
+    --color-background: var(--background-main);
+    --color-foreground: var(--background-contrast-text);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+} */
+
+:root {
+    --primary-light: "#E6A3E3";
+    --primary-main: "#b607b0";
+    --primary-dark: "#590556";
+    --primary-contrast-text: "#ffffff";
+
+    --secondary-light: "#590556";
+    --secondary-main: "#590556";
+    --secondary-dark: "#590556";
+    --secondary-contrast-text: "#590556";
+
+    --background-main: "#FFFFFF";
+    --background-contrast-text: "#242424";
+
+    --danger-light: "#F5A4A4";
+    --danger-main: "#F23A3A";
+    --danger-dark: "#B81414";
+    --danger-contrast-text: "#ffffff";
+
+    --success-light: "#A6F5BE";
+    --success-main: "#34BA5C";
+    --success-dark: "#167833";
+    --success-contrast-text: "#ffffff";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: IRANSansX, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+body {
+  background: var(--background-main);
+  color: var(--background-contrastText);
+  min-height: 100vh;
+}
