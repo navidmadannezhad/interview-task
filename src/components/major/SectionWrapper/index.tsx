@@ -7,11 +7,11 @@ interface SectionWrapperProps{
 
 const SectionWrapper: FC<SectionWrapperProps> = (props) => {
     return(
-        <main
+        <section
             className={styles.sectionWrapper}
         >
             {props.children}
-        </main>
+        </section>
     )
 }
 

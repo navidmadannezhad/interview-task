@@ -1,0 +1,20 @@
+.cartBtnWrapper{
+    position: relative;
+    cursor: pointer;
+}
+
+.cartProductCount{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--success-main);
+    color: var(--success-contrast-text);
+    font-size: 0.9rem;
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
