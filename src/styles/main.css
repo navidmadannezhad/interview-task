@@ -40,6 +40,11 @@
     --success-main: #34BA5C;
     --success-dark: #167833;
     --success-contrast-text: #ffffff;
+
+    --sm-width: 480px;
+    --md-width: 768px;
+    --lg-width: 1000px;
+    --xl-width: 1200px;
 }
 
 * {

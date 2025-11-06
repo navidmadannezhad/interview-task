@@ -12,3 +12,10 @@
     font-size: 1.2rem;
     direction: ltr;
 }
+
+/* WIP -- NOT WORKING! */
+@media only screen and (min-width: 768px){
+    .header{
+        justify-content: center;
+    }
+}

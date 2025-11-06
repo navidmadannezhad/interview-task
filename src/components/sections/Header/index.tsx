@@ -1,6 +1,9 @@
+"use client"
+
 import { FC } from "react";
 import styles from "./main.module.css";
 import { CartBtn } from "@/src/components/ecommerce";
+import Link from "next/link";
 
 interface HeaderProps{};
 
@@ -9,11 +12,12 @@ const Header: FC<HeaderProps> = (props) => {
         <header
             className={styles.header}
         >
-            <p
+            <Link
                 className={styles.logo_text}
+                href="/"
             >
                 InterviewShop!
-            </p>
+            </Link>
 
             <CartBtn />
         </header>
