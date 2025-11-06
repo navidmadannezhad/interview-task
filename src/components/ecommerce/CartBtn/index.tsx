@@ -4,26 +4,60 @@ import { FC } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import styles from "./main.module.css";
 import { enToFaNum } from "@/src/utils/commonUtils";
+import { Drawer, Dropdown } from "@/src/components/major";
+import { CartContent } from "@/src/components/ecommerce";
+import { products } from "@/src/data/products";
+import { useMediaQuery } from "@/src/hooks";
 
 interface CartBtnProps{};
 
 const CartBtn: FC<CartBtnProps> = (props) => {
     const count = 3;
+    // WIP -- HOOK HAS PROBLEM
+    // const isMdUp = useMediaQuery("(width >= 600px)");
+    const isMdUp = false;
 
     return(
-        <div className={styles.cartBtnWrapper}>
-            <MdOutlineShoppingCart
-                size={32}
-            />
-
-            {count ? (
-                <div
-                    className={styles.cartProductCount}
+        <>
+            {isMdUp ? (
+                <Dropdown
+                    content={<CartContent products={products.slice(0, 4)} />}
                 >
-                    {enToFaNum(count)}
-                </div>
-            ) : null}
-        </div>
+                    <div className={styles.cartBtnDesktopWrapper}>
+                        <MdOutlineShoppingCart
+                            size={32}
+                        />
+
+                        {count ? (
+                            <div
+                                className={styles.cartProductCount}
+                            >
+                                {enToFaNum(count)}
+                            </div>
+                        ) : null}
+                    </div>
+                </Dropdown>
+            ) : (
+                <Drawer
+                    content={<CartContent products={products.slice(0, 4)} />}
+                >
+                    <div className={styles.cartBtnMobileWrapper}>
+                        <MdOutlineShoppingCart
+                            size={32}
+                        />
+
+                        {count ? (
+                            <div
+                                className={styles.cartProductCount}
+                            >
+                                {enToFaNum(count)}
+                            </div>
+                        ) : null}
+                    </div>
+                </Drawer>
+            )}
+        </>
+        
     )
 }
 

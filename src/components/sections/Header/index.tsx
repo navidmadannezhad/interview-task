@@ -1,3 +1,5 @@
+"use client"
+
 import { FC } from "react";
 import styles from "./main.module.css";
 import { CartBtn } from "@/src/components/ecommerce";
@@ -5,6 +7,7 @@ import Link from "next/link";
 import { Dropdown } from "@/src/components/major";
 import CartContent from "../../ecommerce/CartContent";
 import { products } from "@/src/data/products";
+import { useMediaQuery } from "@/src/hooks";
 
 interface HeaderProps{};
 
@@ -20,11 +23,7 @@ const Header: FC<HeaderProps> = (props) => {
                 InterviewShop!
             </Link>
 
-            <Dropdown
-                content={<CartContent products={products.slice(0, 4)} />}
-            >
-                <CartBtn />
-            </Dropdown>
+            <CartBtn />
         </header>
     )
 }

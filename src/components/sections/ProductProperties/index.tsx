@@ -22,7 +22,10 @@ const ProductProperties: FC<ProductPropertiesProps> = (props) => {
                 className={styles.propertiesTable}
             >
                 {Object.keys(properties ?? {}).map((key: string) => (
-                    <div className={styles.propertyRow}>
+                    <div 
+                        className={styles.propertyRow}
+                        key={key}
+                    >
                         <div className={styles.propertyRow_key}>
                             {key}
                         </div>

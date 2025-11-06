@@ -1,0 +1,41 @@
+.drawerWrapper{
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.drawerBtnHander{
+
+}
+
+.closeIcon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.drawerContentWrapper{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-main);
+    /* display: none; */
+    transform: translateX(100%);
+    transition: all 0.3s;
+    width: 100vw;
+    height: 100vh;
+}
+
+.drawerOpen{
+    /* display: block!important; */
+    transform: translateX(0%);
+}
+
+.drawerContentWrapper[data-collapsed=true]{
+    display: none!important;
+}
