@@ -2,8 +2,7 @@
 
 import { FC } from "react";
 import styles from "./main.module.css";
-import Image from "next/image";
-import ImageWrapper from "../../major/Image";
+import ImageWrapper from "../../major/ImageWrapper";
 import { Product } from "@/src/models";
 import { humanizePrice } from "@/src/utils/commonUtils";
 import Link from "next/link";
@@ -45,11 +44,13 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                 >
                     {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
                 </div>
-                <div 
-                    className={styles.product_card_discountPrice}
-                >
-                    {humanizePrice(props.product.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                </div>
+                {productHasDiscount ? (
+                    <div 
+                        className={styles.product_card_discountPrice}
+                    >
+                        {humanizePrice(props.product.discount_price)} <span className={styles.tomanHolder}>تومان</span>
+                    </div>
+                ) : null}
                 <button className={styles.addToCardBtn}>
                     اضافه کردن به سبد خرید
                 </button>
