@@ -1,7 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import styles from "./main.module.css";
 import Image from "next/image";
 import ImageWrapper from "../../major/Image";
@@ -53,7 +52,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                 </div>
                 <button className={styles.addToCardBtn}>
                     اضافه کردن به سبد خرید
-            </button>
+                </button>
             </div>
         </div>
     )
