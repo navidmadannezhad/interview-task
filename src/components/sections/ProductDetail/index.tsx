@@ -10,6 +10,8 @@ interface ProductDetailProps{
 
 const ProductDetail: FC<ProductDetailProps> = (props) => {
     const productHasDiscount = !!props.product.discount_price;
+    // WIP -- TO BE DEBUGGED
+    const isMdUp = false;
 
     return(
        <div
@@ -39,26 +41,30 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 >
                     {props.product.title}
                 </h1>
-                <p
-                    className={`
-                        ${styles.productMainPrice}
-                        ${productHasDiscount ? styles.discount_mainPrice : ""}
-                    `}
-                >
-                    {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
-                </p>
-                {productHasDiscount ? (
-                    <p
-                        className={styles.productDiscountPrice}
-                    >
-                        {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                    </p>
+                {isMdUp ? (
+                    <>
+                        <p
+                            className={`
+                                ${styles.productMainPrice}
+                                ${productHasDiscount ? styles.discount_mainPrice : ""}
+                            `}
+                        >
+                            {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                        </p>
+                        {productHasDiscount ? (
+                            <p
+                                className={styles.productDiscountPrice}
+                            >
+                                {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
+                            </p>
+                        ) : null}
+                        <button
+                            className={styles.addToCardBtn}
+                        >
+                            اضافه کردن به سبد خرید
+                        </button>
+                    </>
                 ) : null}
-                <button
-                    className={styles.addToCardBtn}
-                >
-                    اضافه کردن به سبد خرید
-                </button>
                 <p
                     className={styles.shortDescription}
                 >
@@ -74,6 +80,41 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     </p>
                 </div>
             </div>
+
+            {!isMdUp ? (
+                <div
+                    className={styles.mobileContentWrapper}
+                >
+                    <div
+                        className={styles.mobileContent}
+                    >
+                        <button
+                            className={styles.addToCardBtn}
+                        >
+                            اضافه کردن به سبد خرید
+                        </button>
+                        <div
+                            className={styles.verticalHolder}
+                        >
+                            <p
+                                className={`
+                                    ${styles.productMainPrice}
+                                    ${productHasDiscount ? styles.discount_mainPrice : ""}
+                                `}
+                            >
+                                {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                            </p>
+                            {productHasDiscount ? (
+                                <p
+                                    className={styles.productDiscountPrice}
+                                >
+                                    {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
+                                </p>
+                            ) : null}
+                        </div>
+                    </div>
+                </div>
+            ) : null}
         </div>
     )
 }
