@@ -9,8 +9,8 @@ interface DropdownProps{
 };
 
 const Dropdown: FC<DropdownProps> = (props) => {
-    const [dropdownOpen, setDropdownOpen] = useState<boolean>(true);
-    const [collapsedState, setCollapsedState] = useState<boolean>(false)
+    const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+    const [collapsedState, setCollapsedState] = useState<boolean>(true)
 
     const handleOpenDropdown = () => {
         setCollapsedState(false);

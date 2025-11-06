@@ -1,20 +1,20 @@
 .productDetail{
     display: flex;
     width: 100%;
-    justify-content: center;
-    column-gap: 30px;
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+.aspectRatioHolder{
+    width: 80%;
 }
 
 .productContent{
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-    width: 60%;
-}
-
-.aspectRatioHolder{
-    width: 40%;
+    width: 100%;
 }
 
 .productImgWrapper{
@@ -84,7 +84,6 @@
     column-gap: 10px;
 }
 
-
 .longDescription::before{
     content: " ";
     display: block;
@@ -110,4 +109,25 @@
 .addToCardBtn:hover{
     /* WIP -- define a better color change here */
     background-color: var(--primary-main)
+}
+
+@media only screen and (min-width: 768px){
+    .productDetail{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        column-gap: 30px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .productContent{
+        display: flex;
+        row-gap: 20px;
+        width: 60%;
+    }
+
+    .aspectRatioHolder{
+        width: 40%;
+    }
 }

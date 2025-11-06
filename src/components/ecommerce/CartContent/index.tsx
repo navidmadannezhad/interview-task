@@ -20,6 +20,7 @@ const CartContent: FC<CartContentProps> = (props) => {
             {props.products.map((product: Product) => (
                 <div
                     className={styles.cartContentRow}
+                    key={product.id}
                 >
                     <p className={styles.cartContentRowTitle}>
                         {product.title}

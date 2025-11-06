@@ -23,7 +23,8 @@
 .propertyRow{
     padding: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .propertyRow:not(.propertyRow:last-of-type){
@@ -36,4 +37,11 @@
 
 .propertyRow_value{
     width: 90%;
+}
+
+@media only screen and (min-width: 768px){
+    .propertyRow{
+        align-items: center;
+        flex-direction: row;
+    }
 }
