@@ -7,7 +7,7 @@ const products: Product[] = [
     title: "محصول تستی",
     main_price: 100,
     discount_price: 200,
-    thumbnail: "/images/test.jpeg",
+    thumbnail: "/images/test-product.jpeg",
     short_description: "هه",
     long_description: "توضیحات بیشتر",
     meta_title: "Test meta title",
