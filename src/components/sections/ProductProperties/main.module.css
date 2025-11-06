@@ -1,0 +1,39 @@
+.productProperties{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.propertiesTable{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-dark);
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+
+.sectionTitle{
+    color: var(--primary-main);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.propertyRow{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.propertyRow:not(.propertyRow:last-of-type){
+    border-bottom: 1px solid var(--secondary-ultraLight);
+}
+
+.propertyRow_key{
+    width: 10%;
+}
+
+.propertyRow_value{
+    width: 90%;
+}

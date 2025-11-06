@@ -7,7 +7,9 @@ export const enToFaNum = (s: number | string): string | null => {
 }
 export const faToEnNum = (v: string): string => v ? v?.replace(/[۰-۹]/g, d => ('۰۱۲۳۴۵۶۷۸۹' as any).indexOf(d)) : "";
 
-export const humanizePrice = (price: number): string | null => {
+export const humanizePrice = (price: number | undefined): string | null => {
+    if(!price) return null;
+    
     return enToFaNum(
         price.toLocaleString("fa-IR")
     )
