@@ -6,27 +6,14 @@ import ImageWrapper from "../../major/ImageWrapper";
 import { Product } from "@/src/models";
 import { humanizePrice } from "@/src/utils/commonUtils";
 import Link from "next/link";
-import useCart from "@/src/services/store/ecommerce/useCart";
-import useProductIsInCart from "@/src/hooks/useProductIsInCart";
+import AddToCartBtn from "../AddToCartBtn";
 
 interface ProductCardProps{
     product: Product;
 };
 
 const ProductCard: FC<ProductCardProps> = (props) => {
-    const addToCart = useCart((state) => state.addToCart)
-    const removeFromCart = useCart((state) => state.removeFromCart)
-    const existsInCart = useProductIsInCart(props.product);
-
     const productHasDiscount = props.product.discount_price;
-
-    const handleAddToCart = () => {
-        addToCart(props.product)
-    }
-
-    const handleRemoveFromCart = () => {
-        removeFromCart(props.product);
-    }
 
     return(
         <div
@@ -66,13 +53,11 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                     </div>
                 ) : null}
 
-                <button 
-                    className={styles.addToCardBtn}
-                    onClick={existsInCart ? handleRemoveFromCart : handleAddToCart}
+                <div 
+                    className={styles.cartBtnHolder}
                 >
-                    {existsInCart ? "حذف از سبد خرید" : "اضافه کردن به سبد خرید"}
-                    
-                </button>
+                    <AddToCartBtn product={props.product} />
+                </div>
             </div>
         </div>
     )

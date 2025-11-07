@@ -24,7 +24,7 @@ export const useCart = create<State>()(
           ...get().cartItems,
           {
             product: product,
-            count: 0,
+            count: 1,
             created_at: new Date().toISOString()
           }
         ]
@@ -38,7 +38,7 @@ export const useCart = create<State>()(
         const item = get().cartItems.find((item: CartItem) => item.product.id === product.id) as CartItem;
         return {
           cartItems: [
-            ...get().cartItems,
+            ...get().cartItems.filter((item: CartItem) => item.product.id !== product.id),
             {
               ...item,
               count: item.count + 1
@@ -51,7 +51,7 @@ export const useCart = create<State>()(
         const item = get().cartItems.find((item: CartItem) => item.product.id === product.id) as CartItem;
         return {
           cartItems: [
-            ...get().cartItems,
+            ...get().cartItems.filter((item: CartItem) => item.product.id !== product.id),
             {
               ...item,
               count: item?.count - 1

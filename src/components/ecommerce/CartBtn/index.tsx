@@ -7,11 +7,13 @@ import { enToFaNum } from "@/src/utils/commonUtils";
 import { Drawer, Dropdown } from "@/src/components/major";
 import { CartContent } from "@/src/components/ecommerce";
 import { useMediaQuery } from "@/src/hooks";
+import { useCart } from "@/src/services/store";
 
 interface CartBtnProps{};
 
 const CartBtn: FC<CartBtnProps> = (props) => {
-    const count = 3;
+    const cartItems = useCart(state => state.cartItems);
+    const count = cartItems.length;
     // WIP -- HOOK HAS PROBLEM
     // const isMdUp = useMediaQuery("(width >= 600px)");
     const isMdUp = false;
@@ -20,7 +22,7 @@ const CartBtn: FC<CartBtnProps> = (props) => {
         <>
             {isMdUp ? (
                 <Dropdown
-                    content={<CartContent products={[].slice(0, 4)} />}
+                    content={<CartContent items={cartItems} />}
                 >
                     <div className={styles.cartBtnDesktopWrapper}>
                         <MdOutlineShoppingCart
@@ -38,7 +40,7 @@ const CartBtn: FC<CartBtnProps> = (props) => {
                 </Dropdown>
             ) : (
                 <Drawer
-                    content={<CartContent products={[].slice(0, 4)} />}
+                    content={<CartContent items={cartItems} />}
                 >
                     <div className={styles.cartBtnMobileWrapper}>
                         <MdOutlineShoppingCart
