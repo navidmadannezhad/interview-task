@@ -3,6 +3,7 @@ import styles from "./main.module.css";
 import { Product } from "@/src/models";
 import { ImageWrapper } from "@/src/components/major";
 import { humanizePrice } from "@/src/utils/commonUtils";
+import AddToCartBtn from "../../ecommerce/AddToCartBtn";
 
 interface ProductDetailProps{
     product: Product;
@@ -23,13 +24,13 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 <div
                     className={styles.productImgWrapper}
                 >
-                    {/* <ImageWrapper
+                    <ImageWrapper
                         src={props.product?.thumbnail}
                         className={styles.productImg}
                         alt={props.product?.title ?? "تصویر محصول"}
                         // WIP -- give this a proper size
                         sizes="600px"
-                    /> */}
+                    />
                 </div>
             </div>
 
@@ -58,11 +59,11 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                                 {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
                             </p>
                         ) : null}
-                        <button
+                        <div
                             className={styles.addToCardBtn}
                         >
-                            اضافه کردن به سبد خرید
-                        </button>
+                            <AddToCartBtn product={props.product} />
+                        </div>
                     </>
                 ) : null}
                 <p
@@ -88,11 +89,11 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     <div
                         className={styles.mobileContent}
                     >
-                        <button
+                        <div
                             className={styles.addToCardBtn}
                         >
-                            اضافه کردن به سبد خرید
-                        </button>
+                            <AddToCartBtn product={props.product} />
+                        </div>
                         <div
                             className={styles.verticalHolder}
                         >

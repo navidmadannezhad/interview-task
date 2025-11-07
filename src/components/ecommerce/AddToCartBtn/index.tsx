@@ -7,6 +7,7 @@ import useCart from "@/src/services/store/ecommerce/useCart";
 import useProductIsInCart from "@/src/hooks/useProductIsInCart";
 import { MdAdd, MdRemove } from "react-icons/md";
 import { enToFaNum } from "@/src/utils/commonUtils";
+import toast from "react-hot-toast";
 
 interface AddToCartBtnProps{
     product: Product;
@@ -19,13 +20,19 @@ const AddToCartBtn: FC<AddToCartBtnProps> = (props) => {
     const cartItems = useCart((state) => state.cartItems)
     const removeFromCart = useCart((state) => state.removeFromCart)
     const existsInCart = useProductIsInCart(props.product);
+
     const itemCount = cartItems.find((item: CartItem) => item.product.id === props.product.id)?.count;
 
     const handleAddToCart = () => {
         addToCart(props.product)
+        toast.success("محصول به سبد خرید اضافه شد")
     }
 
     const handleIncreaseCount = () => {
+        if(itemCount === props.product.available_count){
+            toast.error("محصول از این بیشتر تو انبار نیست!")
+            return;
+        }
         increaseItemCount(props.product)
     }
 

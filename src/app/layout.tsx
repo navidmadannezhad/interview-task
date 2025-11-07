@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import { Header, Footer } from "../components/sections";
+import { Header, Footer, Providers } from "../components/sections";
 
 const IRANSansX = localFont({
   src: [
@@ -59,9 +59,11 @@ export default function RootLayout({
       <body
         className={`${IRANSansX.className} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

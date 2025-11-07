@@ -99,23 +99,8 @@
 }
 
 .addToCardBtn{
-    border: none;
     width: fit-content;
     height: fit-content;
-    color: var(--primary-contrast-text);
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    width: fit-content;
-
-    transition: all 0.3s;
-    background-color: var(--primary-main);
-}
-
-.addToCardBtn:hover{
-    /* WIP -- define a better color change here */
-    background-color: var(--primary-main)
 }
 
 .mobileContentWrapper{
@@ -170,11 +155,6 @@
 
     .addToCardBtn{
         width: 90%;
-        padding: 10px 20px;
-        font-size: 1rem;
-
-        transition: all 0.3s;
-        background-color: var(--primary-main);
     }
 
     .productDiscountPrice{
