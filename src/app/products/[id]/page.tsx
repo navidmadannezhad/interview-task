@@ -30,11 +30,13 @@ export default async function ProductDetailPage({ params }: any) {
           product={results}
         />
       </SectionWrapper>
-      <SectionWrapper>
-        <ProductProperties
-          product={results}
-        />
-      </SectionWrapper>
+      {results.properties ? (
+        <SectionWrapper>
+          <ProductProperties
+            product={results}
+          />
+        </SectionWrapper>
+      ) : null}
     </PageWrapper>
   );
 }
