@@ -14,6 +14,14 @@ export interface Product {
     updated_at: string;
     discount_active_until?: string;
     properties?: Record<string, string | number>;
+    available_count: number;
+}
+
+
+export interface CartItem{
+    product: Product;
+    count: number;
+    created_at: string;
 }
 
 export type GetProductsResponseBodyDTO = Product[];
