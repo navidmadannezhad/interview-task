@@ -27,6 +27,7 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                     src={props.product.thumbnail}
                     alt={props.product.title}
                     className={styles.product_card_img}
+                    fetchPriority="high"
                     // WIP -- define something that is compatible with image dimensions
                     sizes="600px"
                 />
