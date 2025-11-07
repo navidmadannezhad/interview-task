@@ -14,6 +14,7 @@ const ImageWrapper: FC<ImageWrapperProps> = (props) => {
     return(
         <Image
             onError={() => setSource(IMAGE_PLACEHOLDER_SOURCE)}
+            
             width={100}
             height={100}
             quality={100}

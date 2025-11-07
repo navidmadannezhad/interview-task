@@ -1,8 +1,22 @@
 import { PageWrapper, SectionWrapper } from "@/src/components/major";
 import { ProductDetail, ProductProperties } from "@/src/components/sections";
 import { getProductByID } from "@/src/services/api/ecommerce";
+import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export async function generateMetadata(
+  { params }: { params: { id: number } }
+): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProductByID({ id });
+
+  return {
+    title: product?.results?.meta_title ?? "محصول اینترویو شاپ",
+    description: product?.results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
+    alternates: {
+      canonical: `${process.env.CLIENT_URL}/${product?.results?.id}`
+    }
+  };
+}
 
 export default async function ProductDetailPage({ params }: any) {
   const { id } = await params;
@@ -10,7 +24,6 @@ export default async function ProductDetailPage({ params }: any) {
 
   return (
     <PageWrapper>
-      <></>
       <SectionWrapper>
         <ProductDetail
         //  WIP -- handle 404 not found here
@@ -25,3 +38,5 @@ export default async function ProductDetailPage({ params }: any) {
     </PageWrapper>
   );
 }
+
+export const dynamic = "force-dynamic";

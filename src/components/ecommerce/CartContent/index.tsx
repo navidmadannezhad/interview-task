@@ -23,33 +23,33 @@ const CartContent: FC<CartContentProps> = (props) => {
         <div
             className={styles.cartContent}
         >
-            <div
-                className={styles.cartContentRowsWrapper}
-            >
-                <EmptyWrapper items={props.items}>
-                    {props.items.map((cartItem: CartItem) => (
-                        <div
-                            className={styles.cartContentRow}
-                            key={cartItem.product.id}
-                        >
-                            <p className={styles.cartContentRowTitle}>
-                                {cartItem.product.title}
-                            </p>
-                            <button className={styles.cartContentRowRemove} onClick={() => handleRemoveFromCart(cartItem.product)}>
-                                <MdRemove
-                                    color="var(--danger-contrast-text)"
-                                />
-                            </button>
-                        </div>
-                    ))}
-                </EmptyWrapper>
-            </div>
-            <button
-                className={styles.endPurchaseBtn}
-                onClick={handleEndPurchase}
-            >
-                اتمام خرید
-            </button>
+            <EmptyWrapper items={props.items}>
+                <div
+                    className={styles.cartContentRowsWrapper}
+                >
+                        {props.items.map((cartItem: CartItem) => (
+                            <div
+                                className={styles.cartContentRow}
+                                key={cartItem.product.id}
+                            >
+                                <p className={styles.cartContentRowTitle}>
+                                    {cartItem.product.title}
+                                </p>
+                                <button className={styles.cartContentRowRemove} onClick={() => handleRemoveFromCart(cartItem.product)}>
+                                    <MdRemove
+                                        color="var(--danger-contrast-text)"
+                                    />
+                                </button>
+                            </div>
+                        ))}
+                </div>
+                <button
+                    className={styles.endPurchaseBtn}
+                    onClick={handleEndPurchase}
+                >
+                    اتمام خرید
+                </button>
+            </EmptyWrapper>
         </div>
     )
 }

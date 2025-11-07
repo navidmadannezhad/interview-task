@@ -9,7 +9,6 @@
 .dropdownContentWrapper{
     position: absolute;
     left: 0;
-    top: 10%;
     z-index: 99;
     background-color: var(--background-main);
     border-radius: 20px;
