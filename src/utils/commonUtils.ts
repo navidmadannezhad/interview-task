@@ -17,7 +17,7 @@ export const humanizePrice = (price: number | undefined): string | null => {
     )
 }
 
-export const getSearchParamsString = <T = SimpleSearchParamsObject>(obj: T): string => {
+export const getSearchParamsString = <T = SimpleSearchParamsObject>(obj: any): string => {
     const searchParams = new URLSearchParams("");
     // WIP -- type problem here
     Object.keys(obj).map((key: string) => {
