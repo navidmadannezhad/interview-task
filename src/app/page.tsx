@@ -1,6 +1,5 @@
 import { PageWrapper, SectionWrapper } from "@/src/components/major";
 import { ProductsList } from "@/src/components/sections";
-import { products } from "../data/products";
 import { getProducts } from "@/src/services/api/ecommerce";
 
 export default async function ProductPage() {

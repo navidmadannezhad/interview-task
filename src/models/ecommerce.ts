@@ -16,6 +16,11 @@ export interface Product {
     properties?: Record<string, string | number>;
 }
 
-export type GetProductsRequestBodyDTO = Product;
+export type GetProductsResponseBodyDTO = Product[];
 
 export interface GetProductsRequestSearchParamsDTO extends PaginationSearhParams {}
+
+export interface ApiResponse<T, > {
+    results: T;
+    code: number;
+}

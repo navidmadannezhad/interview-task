@@ -7,7 +7,9 @@ interface ProductPropertiesProps{
 };
 
 const ProductProperties: FC<ProductPropertiesProps> = (props) => {
-    const properties = props.product.properties ?? {};
+    const properties = props.product?.properties ?? {};
+
+    console.log(properties)
 
     return(
         <div
@@ -21,7 +23,7 @@ const ProductProperties: FC<ProductPropertiesProps> = (props) => {
             <div
                 className={styles.propertiesTable}
             >
-                {Object.keys(properties ?? {}).map((key: string) => (
+                {/* {Object.keys(properties ?? {}).map((key: string) => (
                     <div 
                         className={styles.propertyRow}
                         key={key}
@@ -33,7 +35,7 @@ const ProductProperties: FC<ProductPropertiesProps> = (props) => {
                             {properties[key]}
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
         </div>
     )
