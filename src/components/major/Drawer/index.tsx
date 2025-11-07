@@ -54,7 +54,7 @@ const Drawer: FC<DrawerProps> = ({ children, content, className, ...rest }) => {
                 <MdClose
                     className={styles.closeIcon}
                     onClick={handleCloseDrawer}
-                    size={48}
+                    size={32}
                 />
                 {content}
             </div>

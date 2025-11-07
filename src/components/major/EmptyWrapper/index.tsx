@@ -2,7 +2,7 @@
 
 import { FC, ReactNode } from "react";
 import styles from "./main.module.css";
-import { MdOutbox } from "react-icons/md";
+import { MdInbox } from "react-icons/md";
 
 interface EmptyWrapperProps{
     items: unknown[];
@@ -18,8 +18,9 @@ const EmptyWrapper: FC<EmptyWrapperProps> = (props) => {
                 <div
                     className={styles.emptyWrapper}
                 >
-                    <MdOutbox
+                    <MdInbox
                         size={48}
+                        color="var(--secondary-ultraLight)"
                     />
                     <p>
                         نتیجه ای یافت نشد!

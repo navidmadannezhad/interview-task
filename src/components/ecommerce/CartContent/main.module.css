@@ -5,6 +5,12 @@
     padding: 0px 10px 10px 10px;
 }
 
+.cartContentRowsWrapper{
+    height: auto;
+    max-height: 400px;
+    overflow: auto;
+}
+
 .cartContentRow{
     padding: 20px;
     display: flex;
