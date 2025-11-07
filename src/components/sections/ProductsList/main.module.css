@@ -14,3 +14,28 @@
     column-gap: 50px;
     row-gap: 50px;
 }
+
+.loadingBallsWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.loadingBall {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: loadingBall alternate-reverse infinite 0.5s linear;
+}
+
+@keyframes loadingBall {
+    from {
+        background-color: var(--primary-main);
+        transform: scale(1.1);
+    }
+    to{
+        background-color: var(--primary-light);
+        transform: scale(1);
+    }
+}

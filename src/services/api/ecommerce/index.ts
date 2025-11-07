@@ -1,7 +1,7 @@
 import { GetProductsRequestSearchParamsDTO, QueryArgs } from "@/src/models";
 import { getSearchParamsString } from "@/src/utils/commonUtils";
 
-const SERVER_URL = process.env.SERVER_URL;
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
 export const getProducts = async (queryArgs: QueryArgs<GetProductsRequestSearchParamsDTO>) => {
     const searchString = getSearchParamsString<GetProductsRequestSearchParamsDTO>(queryArgs.searchParams);

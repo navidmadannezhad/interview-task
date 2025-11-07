@@ -12,7 +12,10 @@ export async function GET(request: Request) {
 
     const records = JSON.parse(fileContent);
     const recordCount = records.length;
-    const json = records.slice(Number(offset), Number(limit) > recordCount ? recordCount : Number(limit));
+    const json = records.slice(
+        Number(offset), 
+        Number(offset) + Number(limit) > recordCount ? recordCount : Number(offset) + Number(limit)
+    );
 
     // WIP -- HANDLE possible ERRORS! and different erorr codes
 
