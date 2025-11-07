@@ -8,6 +8,8 @@ export interface Product {
     long_description: string;
     meta_title: string;
     meta_description: string;
-    created_at: Date;
+    created_at: string;
+    updated_at: string;
+    discount_active_until: string;
     properties?: Record<string, string | number>;
 }
