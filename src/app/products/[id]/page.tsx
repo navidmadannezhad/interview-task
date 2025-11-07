@@ -13,7 +13,7 @@ export async function generateMetadata(
     title: product?.results?.meta_title ?? "محصول اینترویو شاپ",
     description: product?.results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
     alternates: {
-      canonical: `${process.env.CLIENT_URL}/${product?.results?.id}`
+      canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL}/${product?.results?.id}`
     }
   };
 }

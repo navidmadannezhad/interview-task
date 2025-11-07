@@ -30,3 +30,24 @@ export const getSearchParamsString = <T = SimpleSearchParamsObject>(obj: any): s
 
     return searchParams.toString();
 }
+
+export const getSearchParamsObject = (url: string): SimpleSearchParamsObject => {
+    const paramsObject: SimpleSearchParamsObject = {};
+    if(
+        url?.split("?").length > 2 ||
+        url?.split("?").length === 1
+    ) return {};
+
+    const paramsString = url?.split("?")[1];
+    const searchParams = new URLSearchParams(paramsString);
+
+    for(const [key, value] of searchParams){
+        if(value.split(",").length > 1){
+            paramsObject[key] = value.split(",")
+        }else{
+            paramsObject[key] = value
+        }
+    }
+
+    return paramsObject;
+}

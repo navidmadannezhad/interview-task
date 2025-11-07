@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react";
 import { useCart } from "@/src/services/store";
 import { CartItem, Product } from "@/src/models";
