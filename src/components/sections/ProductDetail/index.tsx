@@ -9,7 +9,7 @@ interface ProductDetailProps{
 };
 
 const ProductDetail: FC<ProductDetailProps> = (props) => {
-    const productHasDiscount = !!props.product.discount_price;
+    const productHasDiscount = !!props.product?.discount_price;
     // WIP -- TO BE DEBUGGED
     const isMdUp = false;
 
@@ -23,13 +23,13 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 <div
                     className={styles.productImgWrapper}
                 >
-                    <ImageWrapper
-                        src={props.product.thumbnail}
+                    {/* <ImageWrapper
+                        src={props.product?.thumbnail}
                         className={styles.productImg}
-                        alt={props.product.title ?? "تصویر محصول"}
+                        alt={props.product?.title ?? "تصویر محصول"}
                         // WIP -- give this a proper size
                         sizes="600px"
-                    />
+                    /> */}
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 <h1
                     className={styles.productTitle}
                 >
-                    {props.product.title}
+                    {props.product?.title}
                 </h1>
                 {isMdUp ? (
                     <>
@@ -49,7 +49,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                                 ${productHasDiscount ? styles.discount_mainPrice : ""}
                             `}
                         >
-                            {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                            {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
                         </p>
                         {productHasDiscount ? (
                             <p
@@ -68,7 +68,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 <p
                     className={styles.shortDescription}
                 >
-                    {props.product.short_description}
+                    {props.product?.short_description}
                 </p>
                 <div
                     className={styles.longDescription}
@@ -76,7 +76,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     <p
                         className={styles.longDescriptionBody}
                     >
-                        {props.product.long_description}
+                        {props.product?.long_description}
                     </p>
                 </div>
             </div>
@@ -102,7 +102,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                                     ${productHasDiscount ? styles.discount_mainPrice : ""}
                                 `}
                             >
-                                {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                                {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
                             </p>
                             {productHasDiscount ? (
                                 <p
