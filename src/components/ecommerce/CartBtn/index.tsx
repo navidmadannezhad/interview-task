@@ -6,7 +6,6 @@ import styles from "./main.module.css";
 import { enToFaNum } from "@/src/utils/commonUtils";
 import { Drawer, Dropdown } from "@/src/components/major";
 import { CartContent } from "@/src/components/ecommerce";
-import { products } from "@/src/data/products";
 import { useMediaQuery } from "@/src/hooks";
 
 interface CartBtnProps{};
@@ -21,7 +20,7 @@ const CartBtn: FC<CartBtnProps> = (props) => {
         <>
             {isMdUp ? (
                 <Dropdown
-                    content={<CartContent products={products.slice(0, 4)} />}
+                    content={<CartContent products={[].slice(0, 4)} />}
                 >
                     <div className={styles.cartBtnDesktopWrapper}>
                         <MdOutlineShoppingCart
@@ -39,7 +38,7 @@ const CartBtn: FC<CartBtnProps> = (props) => {
                 </Dropdown>
             ) : (
                 <Drawer
-                    content={<CartContent products={products.slice(0, 4)} />}
+                    content={<CartContent products={[].slice(0, 4)} />}
                 >
                     <div className={styles.cartBtnMobileWrapper}>
                         <MdOutlineShoppingCart
