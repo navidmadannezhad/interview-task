@@ -23,7 +23,7 @@ const ProductProperties: FC<ProductPropertiesProps> = (props) => {
             <div
                 className={styles.propertiesTable}
             >
-                {/* {Object.keys(properties ?? {}).map((key: string) => (
+                {Object.keys(properties ?? {}).map((key: string) => (
                     <div 
                         className={styles.propertyRow}
                         key={key}
@@ -35,7 +35,7 @@ const ProductProperties: FC<ProductPropertiesProps> = (props) => {
                             {properties[key]}
                         </div>
                     </div>
-                ))} */}
+                ))}
             </div>
         </div>
     )

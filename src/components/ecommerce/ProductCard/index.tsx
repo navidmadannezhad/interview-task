@@ -6,6 +6,7 @@ import ImageWrapper from "../../major/ImageWrapper";
 import { Product } from "@/src/models";
 import { humanizePrice } from "@/src/utils/commonUtils";
 import Link from "next/link";
+import AddToCartBtn from "../AddToCartBtn";
 
 interface ProductCardProps{
     product: Product;
@@ -51,9 +52,12 @@ const ProductCard: FC<ProductCardProps> = (props) => {
                         {humanizePrice(props.product.discount_price)} <span className={styles.tomanHolder}>تومان</span>
                     </div>
                 ) : null}
-                <button className={styles.addToCardBtn}>
-                    اضافه کردن به سبد خرید
-                </button>
+
+                <div 
+                    className={styles.cartBtnHolder}
+                >
+                    <AddToCartBtn product={props.product} />
+                </div>
             </div>
         </div>
     )

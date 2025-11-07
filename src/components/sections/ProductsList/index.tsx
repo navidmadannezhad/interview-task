@@ -22,7 +22,7 @@ const ProductsList: FC<ProductsListProps> = (props) => {
                 {props.products.map((product: Product) => (
                     <ProductCard
                         product={product}
-                        key={product.title + Date.now()}
+                        key={product.id}
                     />
                 ))}
             </div>
