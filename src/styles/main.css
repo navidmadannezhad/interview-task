@@ -61,3 +61,21 @@ body {
   color: var(--background-contrastText);
   min-height: 100vh;
 }
+
+.hiddenUpMD {
+    display: flex;
+}
+@media only screen and (min-width: 768px){
+  .hiddenUpMD {
+      display: none;
+  }
+}
+
+.hiddenDownMD{
+    display: none;
+}
+@media only screen and (min-width: 768px){
+  .hiddenDownMD{
+      display: flex;
+  }
+}

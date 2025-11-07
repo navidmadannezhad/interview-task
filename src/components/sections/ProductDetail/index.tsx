@@ -3,7 +3,7 @@ import styles from "./main.module.css";
 import { Product } from "@/src/models";
 import { ImageWrapper } from "@/src/components/major";
 import { humanizePrice } from "@/src/utils/commonUtils";
-import AddToCartBtn from "../../ecommerce/AddToCartBtn";
+import { AddToCartBtn } from "@/src/components/ecommerce";
 
 interface ProductDetailProps{
     product: Product;
@@ -11,13 +11,12 @@ interface ProductDetailProps{
 
 const ProductDetail: FC<ProductDetailProps> = (props) => {
     const productHasDiscount = !!props.product?.discount_price;
-    // WIP -- TO BE DEBUGGED
-    const isMdUp = false;
 
     return(
        <div
             className={styles.productDetail}
         >
+
             <div
                 className={styles.aspectRatioHolder}
             >
@@ -42,30 +41,33 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 >
                     {props.product?.title}
                 </h1>
-                {isMdUp ? (
-                    <>
-                        <p
-                            className={`
-                                ${styles.productMainPrice}
-                                ${productHasDiscount ? styles.discount_mainPrice : ""}
-                            `}
-                        >
-                            {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
-                        </p>
-                        {productHasDiscount ? (
-                            <p
-                                className={styles.productDiscountPrice}
-                            >
-                                {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                            </p>
-                        ) : null}
-                        <div
-                            className={styles.addToCardBtn}
-                        >
-                            <AddToCartBtn product={props.product} />
-                        </div>
-                    </>
+                <p
+                    className={`
+                        ${styles.productMainPrice}
+                        ${productHasDiscount ? styles.discount_mainPrice : ""}
+                        hiddenDownMD
+                    `}
+                >
+                    {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                </p>
+                {productHasDiscount ? (
+                    <p
+                        className={`
+                            ${styles.productDiscountPrice}
+                            hiddenDownMD  
+                        `}
+                    >
+                        {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
+                    </p>
                 ) : null}
+                <div
+                    className={`
+                        ${styles.addToCardBtn}
+                        hiddenDownMD   
+                    `}
+                >
+                    <AddToCartBtn product={props.product} />
+                </div>
                 <p
                     className={styles.shortDescription}
                 >
@@ -82,40 +84,41 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 </div>
             </div>
 
-            {!isMdUp ? (
+            <div
+                className={`
+                    ${styles.mobileContentWrapper}
+                    hiddenUpMD  
+                `}
+            >
                 <div
-                    className={styles.mobileContentWrapper}
+                    className={styles.mobileContent}
                 >
                     <div
-                        className={styles.mobileContent}
+                        className={styles.addToCardBtn}
                     >
-                        <div
-                            className={styles.addToCardBtn}
+                        <AddToCartBtn product={props.product} />
+                    </div>
+                    <div
+                        className={styles.verticalHolder}
+                    >
+                        <p
+                            className={`
+                                ${styles.productMainPrice}
+                                ${productHasDiscount ? styles.discount_mainPrice : ""}
+                            `}
                         >
-                            <AddToCartBtn product={props.product} />
-                        </div>
-                        <div
-                            className={styles.verticalHolder}
-                        >
+                            {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                        </p>
+                        {productHasDiscount ? (
                             <p
-                                className={`
-                                    ${styles.productMainPrice}
-                                    ${productHasDiscount ? styles.discount_mainPrice : ""}
-                                `}
+                                className={styles.productDiscountPrice}
                             >
-                                {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
+                                {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
                             </p>
-                            {productHasDiscount ? (
-                                <p
-                                    className={styles.productDiscountPrice}
-                                >
-                                    {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                                </p>
-                            ) : null}
-                        </div>
+                        ) : null}
                     </div>
                 </div>
-            ) : null}
+            </div>
         </div>
     )
 }

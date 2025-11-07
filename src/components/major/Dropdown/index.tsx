@@ -1,14 +1,14 @@
 "use client";
 
-import { FC, ReactNode, useState } from "react";
+import { FC, HTMLProps, ReactNode, useState } from "react";
 import styles from "./main.module.css";
 
-interface DropdownProps{
+interface DropdownProps extends Omit<HTMLProps<HTMLDivElement>, 'content'>{
     children: ReactNode;
     content: ReactNode;
 };
 
-const Dropdown: FC<DropdownProps> = (props) => {
+const Dropdown: FC<DropdownProps> = ({ children, content, className, ...rest }) => {
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
     const [collapsedState, setCollapsedState] = useState<boolean>(true)
 
@@ -28,14 +28,20 @@ const Dropdown: FC<DropdownProps> = (props) => {
 
     return(
         <div
-            className={styles.dropdownWrapper}
             onMouseEnter={handleOpenDropdown}
             onMouseLeave={handleCloseDropdown}
+
+            className={`
+                ${className}
+                ${styles.drawerWrapper}
+            `}
+            
+            { ...rest }
         >
             <div
                 className={styles.dropdownBtnHander}
             >
-                {props.children}
+                {children}
             </div>
             <div
                 className={`
@@ -45,7 +51,7 @@ const Dropdown: FC<DropdownProps> = (props) => {
 
                 data-collapsed={collapsedState}
             >
-                {props.content}
+                {content}
             </div>
         </div>
     )
