@@ -1,12 +1,22 @@
 .addToCartBtnWrapper{
-    color: var(--primary-contrast-text);
-    background-color: var(--primary-main);
     width: 100%;
     border-radius: 10px;
     padding: 10px;
     font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
 
     transition: all 0.3s;
+}
+
+.productNotAvailable{
+    color: var(--danger-contrast-text);
+    background-color: var(--danger-main);
+}
+
+.productAvailable{
+    color: var(--primary-contrast-text);
+    background-color: var(--primary-main);
 }
 
 .countMode{
