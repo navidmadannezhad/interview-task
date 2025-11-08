@@ -14,8 +14,14 @@
 .cartContentRow{
     padding: 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.itemThumbnail{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 }
 
 .cartContentOperationsWrapper{

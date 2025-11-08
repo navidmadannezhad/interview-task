@@ -5,7 +5,7 @@ import styles from "./main.module.css";
 import { MdRemove } from "react-icons/md";
 import { CartItem, Product } from "@/src/models";
 import { useCart } from "@/src/services/store";
-import { EmptyWrapper } from "@/src/components/major";
+import { EmptyWrapper, ImageWrapper } from "@/src/components/major";
 import { enToFaNum, humanizePrice } from "@/src/utils/commonUtils";
 
 interface CartContentProps{
@@ -38,6 +38,12 @@ const CartContent: FC<CartContentProps> = (props) => {
                                 className={styles.cartContentRow}
                                 key={cartItem.product.id}
                             >
+                                <ImageWrapper
+                                    src={cartItem.product.thumbnail}
+                                    className={styles.itemThumbnail}
+                                    sizes="80px"
+                                    alt={cartItem.product?.title ?? "تصویر محصول"}
+                                />
                                 <div className={styles.cartContentWrapper}>
                                     <p className={styles.cartContentRowTitle}>
                                         {cartItem.product.title}
