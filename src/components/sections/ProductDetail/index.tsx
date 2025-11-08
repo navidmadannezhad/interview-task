@@ -49,7 +49,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 >
                     {props.product?.title}
                 </h1>
-                <p
+                <div
                     className={`
                         ${styles.productMainPrice}
                         ${productHasDiscount ? styles.discount_mainPrice : ""}
@@ -57,16 +57,16 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     `}
                 >
                     {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
-                </p>
+                </div>
                 {productHasDiscount ? (
-                    <p
+                    <div
                         className={`
                             ${styles.productDiscountPrice}
                             hiddenDownMD  
                         `}
                     >
                         {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                    </p>
+                    </div>
                 ) : null}
                 <div
                     className={`
@@ -77,7 +77,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     <AddToCartBtn product={props.product} />
                 </div>
                 {productAvailable ? (
-                    <p
+                    <div
                         className={`
                             ${styles.productCountHolder}
                             hiddenDownMD  
@@ -87,7 +87,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                             enToFaNum(relatedCartItem ? props.product?.available_count - relatedCartItem.count : props.product?.available_count )
                         } 
                         <p className={styles.tomanHolder}>عدد در انبار باقی مونده</p>
-                    </p>
+                    </div>
                 ) : null}
                 <p
                     className={styles.shortDescription}
@@ -122,20 +122,20 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     <div
                         className={styles.verticalHolder}
                     >
-                        <p
+                        <div
                             className={`
                                 ${styles.productMainPrice}
                                 ${productHasDiscount ? styles.discount_mainPrice : ""}
                             `}
                         >
                             {humanizePrice(props.product?.main_price)} <span className={styles.tomanHolder}>تومان</span>
-                        </p>
+                        </div>
                         {productHasDiscount ? (
-                            <p
+                            <div
                                 className={styles.productDiscountPrice}
                             >
                                 {humanizePrice(props.product?.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                            </p>
+                            </div>
                         ) : null}
                     </div>
                 </div>
