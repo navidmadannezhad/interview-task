@@ -1,4 +1,4 @@
-import { SimpleSearchParamsObject } from "../models";
+import { ErrorResponse, SimpleSearchParamsObject } from "../models";
 
 export const enToFaNum = (s: number | string): string | null => {
     if(s === undefined || s === null) return null;
@@ -56,4 +56,13 @@ export const getTimeStampFromISOTime = (iso: string): number => {
     if(!iso) return 0;
     const date = new Date(iso);
     return date.getTime();
+}
+
+export const parseErrorResponse = async (res: Response): Promise<ErrorResponse> => {
+    console.log(res)
+    const data = await res.json();
+    return {
+        message: data.body,
+        status: res.status
+    }
 }

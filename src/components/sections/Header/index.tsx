@@ -8,7 +8,6 @@ import Link from "next/link";
 interface HeaderProps{};
 
 const Header: FC<HeaderProps> = (props) => {
-    console.log('header rerender')
     return(
         <header
             className={styles.header}

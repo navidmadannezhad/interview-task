@@ -1,16 +1,23 @@
+"use client";
+
 import { FC } from "react";
 import styles from "./main.module.css";
-import { Product } from "@/src/models";
+import { CartItem, Product } from "@/src/models";
 import { ImageWrapper } from "@/src/components/major";
-import { humanizePrice } from "@/src/utils/commonUtils";
+import { enToFaNum, humanizePrice } from "@/src/utils/commonUtils";
 import { AddToCartBtn } from "@/src/components/ecommerce";
+import { useCart } from "@/src/services/store";
 
 interface ProductDetailProps{
     product: Product;
 };
 
 const ProductDetail: FC<ProductDetailProps> = (props) => {
+    const cartItems = useCart(state => state.cartItems);
     const productHasDiscount = !!props.product?.discount_price;
+    const productAvailable = props.product?.available_count !== 0;
+
+    const relatedCartItem = cartItems.find((item: CartItem) => item.product.id === props.product?.id);
 
     return(
        <div
@@ -69,6 +76,19 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 >
                     <AddToCartBtn product={props.product} />
                 </div>
+                {productAvailable ? (
+                    <p
+                        className={`
+                            ${styles.productCountHolder}
+                            hiddenDownMD  
+                        `}
+                    >
+                        {
+                            enToFaNum(relatedCartItem ? props.product?.available_count - relatedCartItem.count : props.product?.available_count )
+                        } 
+                        <p className={styles.tomanHolder}>عدد در انبار باقی مونده</p>
+                    </p>
+                ) : null}
                 <p
                     className={styles.shortDescription}
                 >

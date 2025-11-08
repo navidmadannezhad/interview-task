@@ -1,4 +1,4 @@
-import { PaginationSearhParams } from "./major";
+import { PaginationSearhParams, Response } from "./major";
 
 export interface Product {
     id: number;
@@ -24,7 +24,13 @@ export interface CartItem{
     created_at: string;
 }
 
-export type GetProductsResponseBodyDTO = Product[];
+export type GetProductsResponseBodyDTO = Response<{
+    results: Product[];
+    count: number;
+} | string>;
+export type GetProductByIDResponseBodyDTO = Response<{
+    results: Product;
+} | string>;
 
 export interface GetProductsRequestSearchParamsDTO extends PaginationSearhParams {}
 

@@ -20,6 +20,7 @@ const AddToCartBtn: FC<AddToCartBtnProps> = (props) => {
     const cartItems = useCart((state) => state.cartItems)
     const removeFromCart = useCart((state) => state.removeFromCart)
     const existsInCart = useProductIsInCart(props.product);
+    const productNotAvailable = props.product.available_count === 0;
 
     const itemCount = cartItems.find((item: CartItem) => item.product.id === props.product.id)?.count;
 
@@ -52,41 +53,47 @@ const AddToCartBtn: FC<AddToCartBtnProps> = (props) => {
         <div
             className={`
                 ${styles.addToCartBtnWrapper}
-                ${existsInCart ? styles.countMode : ""}    
+                ${existsInCart ? styles.countMode : ""}   
+                ${productNotAvailable ? styles.productNotAvailable : styles.productAvailable}    
             `}
         >
-            {existsInCart ? (
+            {productNotAvailable ? "محصول فعلا موجود نیست!" : (
                 <>
-                    <button 
-                        className={`
-                            ${styles.countControlBtn}
-                            ${styles.countIncreaseBtn}
-                        `}
-                        onClick={handleIncreaseCount}
-                    >
-                        <MdAdd />
-                    </button>
-                    <p className={styles.countHolder}>
-                        {enToFaNum(itemCount ?? 0)}
-                    </p>
-                    <button 
-                        className={`
-                            ${styles.countControlBtn}
-                            ${styles.countDecreaseBtn}
-                        `}
-                        onClick={handleDecreaseCount}
-                    >
-                        <MdRemove />
-                    </button>
+                    {existsInCart ? (
+                        <>
+                            <button 
+                                className={`
+                                    ${styles.countControlBtn}
+                                    ${styles.countIncreaseBtn}
+                                `}
+                                onClick={handleIncreaseCount}
+                            >
+                                <MdAdd />
+                            </button>
+                            <p className={styles.countHolder}>
+                                {enToFaNum(itemCount ?? 0)}
+                            </p>
+                            <button 
+                                className={`
+                                    ${styles.countControlBtn}
+                                    ${styles.countDecreaseBtn}
+                                `}
+                                onClick={handleDecreaseCount}
+                            >
+                                <MdRemove />
+                            </button>
+                        </>
+                    ) : (
+                        <button 
+                            className={styles.addToCardBtn}
+                            onClick={handleAddToCart}
+                        >
+                            اضافه کردن به سبد خرید
+                        </button>
+                    )}
                 </>
-            ) : (
-                <button 
-                    className={styles.addToCardBtn}
-                    onClick={handleAddToCart}
-                >
-                    اضافه کردن به سبد خرید
-                </button>
             )}
+            
         </div>
     )
 }

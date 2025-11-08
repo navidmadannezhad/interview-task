@@ -6,15 +6,18 @@ import { paginationInitialState } from "@/src/configs/major";
 export const dynamic = "force-dynamic";
 
 export default async function ProductPage() {
-  const { results } = await getProducts({
-    searchParams: paginationInitialState
-  });
+  let body;
+  try{
+    body = await getProducts({
+      searchParams: paginationInitialState
+    });
+  }catch{}
   
   return (
     <PageWrapper>
       <SectionWrapper>
         <ProductsList
-          products={results}
+          products={body?.results}
         />
       </SectionWrapper>
     </PageWrapper>
