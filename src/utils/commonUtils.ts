@@ -51,3 +51,9 @@ export const getSearchParamsObject = (url: string): SimpleSearchParamsObject => 
 
     return paramsObject;
 }
+
+export const getTimeStampFromISOTime = (iso: string): number => {
+    if(!iso) return 0;
+    const date = new Date(iso);
+    return date.getTime();
+}

@@ -15,6 +15,7 @@ interface ProductCardProps{
 
 const ProductCard: FC<ProductCardProps> = memo((props) => {
     const productHasDiscount = props.product.discount_price;
+
     return(
         <div
             className={styles.product_card_wrapper}
