@@ -2,7 +2,6 @@
 
 import { FC, useEffect, useRef, useState } from "react";
 import styles from "./main.module.css";
-// import { ProductCard } from "@/src/components/ecommerce";
 import { PaginationSearhParams, Product } from "@/src/models";
 import { MANUAL_PAGINATION_START_COUNT, paginationInitialState } from "@/src/configs/major";
 import { getProducts } from "@/src/services/api/ecommerce";

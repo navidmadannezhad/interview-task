@@ -61,7 +61,7 @@
 .product_card_discountPrice{
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--success-main);
+    color: var(--success-dark);
 }
 
 .tomanHolder{
@@ -69,7 +69,7 @@
 }
 
 .mainPrice_discountActive{
-    color: var(--danger-main);
+    color: var(--danger-dark);
     text-decoration: line-through;
 }
 
