@@ -7,14 +7,14 @@ import { Product } from "@/src/models";
 import { humanizePrice } from "@/src/utils/commonUtils";
 import Link from "next/link";
 import AddToCartBtn from "../AddToCartBtn";
+import { memo } from "react";
 
 interface ProductCardProps{
     product: Product;
 };
 
-const ProductCard: FC<ProductCardProps> = (props) => {
+const ProductCard: FC<ProductCardProps> = memo((props) => {
     const productHasDiscount = props.product.discount_price;
-
     return(
         <div
             className={styles.product_card_wrapper}
@@ -62,6 +62,6 @@ const ProductCard: FC<ProductCardProps> = (props) => {
             </div>
         </div>
     )
-}
+})
 
 export default ProductCard;
