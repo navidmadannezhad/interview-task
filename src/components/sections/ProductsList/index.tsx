@@ -7,6 +7,7 @@ import { MANUAL_PAGINATION_START_COUNT, paginationInitialState } from "@/src/con
 import { getProducts } from "@/src/services/api/ecommerce";
 import { useReachedBottom } from "@/src/hooks";
 import { EmptyWrapper } from "@/src/components/major";
+import { ProductCard } from "@/src/components/ecommerce";
 import toast from "react-hot-toast";
 import dynamic from "next/dynamic";
 
@@ -14,7 +15,7 @@ interface ProductsListProps{
     products: Product[];
 };
 
-const ProductCard = dynamic(() => import('../../ecommerce/ProductCard'))
+// const ProductCard = dynamic(() => import('../../ecommerce/ProductCard'))
 
 const ProductsList: FC<ProductsListProps> = (props) => {
     const productsContainerRef = useRef<HTMLDivElement>(null);
