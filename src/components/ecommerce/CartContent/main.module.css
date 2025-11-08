@@ -18,8 +18,10 @@
     align-items: center;
 }
 
-.cartContentRowTitle{
-    font-size: 0.8rem;
+.cartContentOperationsWrapper{
+    flex: 0.1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .cartContentRowRemove{
@@ -30,6 +32,42 @@
 
 .cartContentRow:not(.cartContentRow:last-of-type){
     border-bottom: 1px solid var(--secondary-ultraLight);
+}
+
+.cartContentWrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    row-gap: 10px;
+}
+
+.cartContentRowTitle{
+    font-size: 0.8rem;
+    flex: 1;
+}
+
+.cartDetailsWrapper{
+    display: flex;
+    align-items: center;
+    flex: 0.8;
+}
+
+.itemDetail{
+    font-size: 0.8rem;
+    flex: 1;
+}
+
+.priceSum{
+    color: var(--primary-main);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: auto;
+    padding: 10px 0px;
+}
+
+.priceSumLabel{
+    color: var(--primary-main);
+    font-size: 0.9rem;
 }
 
 .endPurchaseBtn{
@@ -44,4 +82,11 @@
 
 .endPurchaseBtn:hover{
     background-color: var(--success-main);
+}
+
+@media only screen and (min-width: 768px){
+    .cartContentWrapper{
+        flex-direction: row;
+        align-items: center;
+    }
 }
