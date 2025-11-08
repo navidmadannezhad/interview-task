@@ -4,7 +4,6 @@ import { Product } from "@/src/models";
 
 export async function GET(request: Request, context: RouteContext<'/api/ecommerce/products/[id]'>) {
     const params = await context?.params;
-    console.log(params)
     const { id }  = params;
 
     // WIP -- HANDLE possible ERRORS! and different erorr codes
@@ -13,9 +12,6 @@ export async function GET(request: Request, context: RouteContext<'/api/ecommerc
     const json = JSON.parse(fileContent);
 
     const product = json.find((product: Product) => String(product.id) === id);
-
-    console.log("id is ", id)
-    console.log(product)
 
     return Response.json({
         results: product
