@@ -9,8 +9,6 @@ interface ProductPropertiesProps{
 const ProductProperties: FC<ProductPropertiesProps> = (props) => {
     const properties = props.product?.properties ?? {};
 
-    console.log(properties)
-
     return(
         <div
             className={styles.productProperties}

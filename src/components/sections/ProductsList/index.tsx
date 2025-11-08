@@ -4,7 +4,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import styles from "./main.module.css";
 // import { ProductCard } from "@/src/components/ecommerce";
 import { PaginationSearhParams, Product } from "@/src/models";
-import { paginationInitialState } from "@/src/configs/major";
+import { MANUAL_PAGINATION_START_COUNT, paginationInitialState } from "@/src/configs/major";
 import { getProducts } from "@/src/services/api/ecommerce";
 import { useReachedBottom } from "@/src/hooks";
 import { EmptyWrapper } from "@/src/components/major";
@@ -18,13 +18,15 @@ interface ProductsListProps{
 const ProductCard = dynamic(() => import('../../ecommerce/ProductCard'))
 
 const ProductsList: FC<ProductsListProps> = (props) => {
-    const [products, setProducts] = useState<Product[]>(props.products);
     const productsContainerRef = useRef<HTMLDivElement>(null);
+    const [products, setProducts] = useState<Product[]>(props.products);
     const [paginationModel, setPaginationModel] = useState<PaginationSearhParams>(paginationInitialState)
     const [productsEnded, setProductsEnded] = useState<boolean>(false);
-    // WIP --  typescript bug
-    const reachedBottom = useReachedBottom(productsContainerRef);
+    const [manualPaginationActive, setManualPaginationActive] = useState<boolean>(false);
+    const [paginatedCount, setPaginatedCount] = useState<number>(0);
     const [isFetching, setIsFetching] = useState(false);
+
+    const reachedBottom = useReachedBottom(productsContainerRef);
 
     const fetchProducts = async (paginationState: PaginationSearhParams) => {
         setIsFetching(true);
@@ -50,8 +52,22 @@ const ProductsList: FC<ProductsListProps> = (props) => {
         }
     }
 
+    const handleFetchMoreProducts = () => {
+        setPaginationModel(prev => ({
+            ...prev,
+            offset: prev.offset + prev.limit
+        }))
+    }
+
     useEffect(() => {
-        if(reachedBottom){
+        if(paginatedCount === MANUAL_PAGINATION_START_COUNT){
+            setManualPaginationActive(true)
+        }
+    }, [paginatedCount])
+
+    useEffect(() => {
+        if(reachedBottom && paginatedCount < MANUAL_PAGINATION_START_COUNT){
+            setPaginatedCount(prev => prev + 1)
             setPaginationModel(prev => ({
                 ...prev,
                 offset: prev.offset + prev.limit
@@ -97,6 +113,15 @@ const ProductsList: FC<ProductsListProps> = (props) => {
                     <div className={styles.loadingBall} />
                     <div className={styles.loadingBall} />
                 </div>
+            ) : null}
+
+            {manualPaginationActive && !isFetching && !productsEnded ? (
+                <button
+                    className={styles.manualPaginationActive}
+                    onClick={handleFetchMoreProducts}
+                >
+                    دریافت محصولات بیشتر
+                </button>
             ) : null}
         </div>
     )

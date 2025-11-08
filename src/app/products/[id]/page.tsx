@@ -2,25 +2,31 @@ import { PageWrapper, SectionWrapper } from "@/src/components/major";
 import { ProductDetail, ProductProperties } from "@/src/components/sections";
 import { getProductByID } from "@/src/services/api/ecommerce";
 import { Metadata } from "next";
-
+import { cache } from "react";
+ 
 export async function generateMetadata(
   { params }: { params: { id: number } }
 ): Promise<Metadata> {
   const { id } = await params;
-  const product = await getProductByID({ id });
+
+  const cached = cache(getProductByID)
+  const { results } = await cached({ id });
 
   return {
-    title: product?.results?.meta_title ?? "محصول اینترویو شاپ",
-    description: product?.results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
+    title: results?.meta_title ?? "محصول اینترویو شاپ",
+    description: results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL}/${product?.results?.id}`
+      canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL}/${results?.id}`
     }
   };
 }
 
+// https://nextjs.org/docs/app/api-reference/config/next-config-js/logging
+
 export default async function ProductDetailPage({ params }: any) {
   const { id } = await params;
-  const { results } = await getProductByID({ id });
+  const cached = cache(getProductByID)
+  const { results } = await cached({ id });
 
   return (
     <PageWrapper>
