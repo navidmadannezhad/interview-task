@@ -27,8 +27,9 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                         src={props.product?.thumbnail}
                         className={styles.productImg}
                         alt={props.product?.title ?? "تصویر محصول"}
-                        // WIP -- give this a proper size
-                        sizes="600px"
+                        fetchPriority="high"
+                        quality={75}
+                        sizes="(min-width: 768px) 600px, 350px"
                     />
                 </div>
             </div>
