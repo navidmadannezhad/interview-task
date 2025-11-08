@@ -7,4 +7,4 @@ export const paginationInitialState: PaginationSearhParams = {
 
 export const MANUAL_PAGINATION_START_COUNT = 3;
 
-export const CART_ITEM_LIFE = 1 * 30 * 1000;
+export const CART_ITEM_LIFE = 60 * 30 * 1000;
