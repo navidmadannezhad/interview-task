@@ -15,6 +15,23 @@
     row-gap: 50px;
 }
 
+.manualPaginationActive{
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px 30px;
+    width: fit-content;
+    background-color: var(--primary-main);
+    color: var(--primary-contrast-text);
+    font-weight: 500;
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.manualPaginationActive:hover{
+    transform: scale(1.05);
+}
+
 .loadingBallsWrapper{
     display: flex;
     align-items: center;

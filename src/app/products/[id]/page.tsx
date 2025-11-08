@@ -30,7 +30,7 @@ export default async function ProductDetailPage({ params }: any) {
 
   return (
     <PageWrapper>
-      {/* <SectionWrapper>
+      <SectionWrapper>
         <ProductDetail
         //  WIP -- handle 404 not found here
           product={results}
@@ -42,7 +42,7 @@ export default async function ProductDetailPage({ params }: any) {
             product={results}
           />
         </SectionWrapper>
-      ) : null} */}
+      ) : null}
     </PageWrapper>
   );
 }

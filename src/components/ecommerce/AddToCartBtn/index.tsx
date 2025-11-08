@@ -5,7 +5,7 @@ import styles from "./main.module.css";
 import { CartItem, Product } from "@/src/models";
 import useCart from "@/src/services/store/ecommerce/useCart";
 import useProductIsInCart from "@/src/hooks/useProductIsInCart";
-import { MdAdd, MdRemove } from "react-icons/md";
+import { MdRemove, MdAdd } from "react-icons/md";
 import { enToFaNum } from "@/src/utils/commonUtils";
 import toast from "react-hot-toast";
 
