@@ -32,13 +32,13 @@
     --background-contrast-text: #242424;
 
     --danger-light: #F5A4A4;
-    --danger-main: #F23A3A;
-    --danger-dark: #ce1818;
+    --danger-main: #ca2d2d;
+    --danger-dark: #AD1414;
     --danger-contrast-text: #ffffff;
 
     --success-light: #A6F5BE;
     --success-main: #34BA5C;
-    --success-dark: #1a8a3c;
+    --success-dark: #198639;
     --success-contrast-text: #ffffff;
 
     --sm-width: 480px;
