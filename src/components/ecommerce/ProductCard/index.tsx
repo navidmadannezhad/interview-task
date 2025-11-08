@@ -15,6 +15,7 @@ interface ProductCardProps{
 
 const ProductCard: FC<ProductCardProps> = memo((props) => {
     const productHasDiscount = props.product.discount_price;
+
     return(
         <div
             className={styles.product_card_wrapper}
@@ -48,13 +49,11 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                 >
                     {humanizePrice(props.product.main_price)} <span className={styles.tomanHolder}>تومان</span>
                 </div>
-                {productHasDiscount ? (
-                    <div 
-                        className={styles.product_card_discountPrice}
-                    >
-                        {humanizePrice(props.product.discount_price)} <span className={styles.tomanHolder}>تومان</span>
-                    </div>
-                ) : null}
+                <div 
+                    className={styles.product_card_discountPrice}
+                >
+                    {humanizePrice(props.product.discount_price)} <span className={styles.tomanHolder}>تومان</span>
+                </div>
 
                 <div 
                     className={styles.cartBtnHolder}

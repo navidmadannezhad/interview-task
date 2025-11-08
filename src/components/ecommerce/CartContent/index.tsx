@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useMemo } from "react";
+import { FC, useCallback, useEffect, useMemo } from "react";
 import styles from "./main.module.css";
 import { MdRemove } from "react-icons/md";
 import { CartItem, Product } from "@/src/models";
@@ -15,9 +15,10 @@ interface CartContentProps{
 const CartContent: FC<CartContentProps> = (props) => {
     const removeFromCart = useCart(state => state.removeFromCart);
 
-    const handleRemoveFromCart = (product: Product) => {
+    const handleRemoveFromCart = useCallback((product: Product) => {
         removeFromCart(product)
-    };
+    }, []);
+
     const handleEndPurchase = () => {};
 
     const priceSum = useMemo(() => {
