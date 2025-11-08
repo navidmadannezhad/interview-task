@@ -22,6 +22,7 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
             <Link
                 className={styles.product_card_img_container}
                 href={`/products/${props.product.id}`}
+                prefetch={false}
             >
                 <ImageWrapper
                     src={props.product.thumbnail}

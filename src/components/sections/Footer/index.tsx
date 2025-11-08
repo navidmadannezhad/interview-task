@@ -23,46 +23,21 @@ const Footer: FC<FooterProps> = (props) => {
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
-                    >
-                        تست
-                    </Link>
-                </div>
-
-                <div
-                    className={styles.footerMinorContent}
-                >
-                    <p
-                        className={styles.footerMinorContentTitle}
-                    >
-                        تیتر تست
-                    </p>
-                    <Link
-                        className={styles.footerMinorContentLink}
-                        href="#"
-                    >
-                        تست
-                    </Link>
-                    <Link
-                        className={styles.footerMinorContentLink}
-                        href="#"
-                    >
-                        تست
-                    </Link>
-                    <Link
-                        className={styles.footerMinorContentLink}
-                        href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
@@ -79,18 +54,52 @@ const Footer: FC<FooterProps> = (props) => {
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
+                        prefetch={false}
+                    >
+                        تست
+                    </Link>
+                </div>
+
+                <div
+                    className={styles.footerMinorContent}
+                >
+                    <p
+                        className={styles.footerMinorContentTitle}
+                    >
+                        تیتر تست
+                    </p>
+                    <Link
+                        className={styles.footerMinorContentLink}
+                        href="#"
+                        prefetch={false}
+                    >
+                        تست
+                    </Link>
+                    <Link
+                        className={styles.footerMinorContentLink}
+                        href="#"
+                        prefetch={false}
+                    >
+                        تست
+                    </Link>
+                    <Link
+                        className={styles.footerMinorContentLink}
+                        href="#"
+                        prefetch={false}
                     >
                         تست
                     </Link>
