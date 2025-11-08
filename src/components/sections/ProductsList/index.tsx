@@ -9,7 +9,6 @@ import { useReachedBottom } from "@/src/hooks";
 import { EmptyWrapper } from "@/src/components/major";
 import { ProductCard } from "@/src/components/ecommerce";
 import toast from "react-hot-toast";
-import dynamic from "next/dynamic";
 
 interface ProductsListProps{
     products: Product[];

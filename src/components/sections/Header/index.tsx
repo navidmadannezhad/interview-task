@@ -15,6 +15,7 @@ const Header: FC<HeaderProps> = (props) => {
             <Link
                 className={styles.logo_text}
                 href="/"
+                prefetch={false}
             >
                 InterviewShop!
             </Link>
