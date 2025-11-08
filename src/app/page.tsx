@@ -9,6 +9,8 @@ export default async function ProductPage() {
   const { results } = await getProducts({
     searchParams: paginationInitialState
   });
+
+  throw new Error("We got a random error lmao")
   
   return (
     <PageWrapper>
