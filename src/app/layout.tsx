@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import { Header, Footer, Providers } from "../components/sections";
+import { Providers } from "../components/sections";
+import dynamic from "next/dynamic";
 
 const IRANSansX = localFont({
   src: [
@@ -43,6 +44,9 @@ const IRANSansX = localFont({
     },
   ],
 });
+
+const Header = dynamic(() => import('../components/sections/Header'))
+const Footer = dynamic(() => import('../components/sections/Footer'))
 
 export const metadata: Metadata = {
   title: "محصولات اینترویو شاپ",
