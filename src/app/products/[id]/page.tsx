@@ -2,47 +2,55 @@ import { PageWrapper, SectionWrapper } from "@/src/components/major";
 import { ProductDetail, ProductProperties } from "@/src/components/sections";
 import { getProductByID } from "@/src/services/api/ecommerce";
 import { Metadata } from "next";
-import { cache } from "react";
+import { notFound } from "next/navigation";
  
 export async function generateMetadata(
   { params }: { params: { id: number } }
 ): Promise<Metadata> {
   const { id } = await params;
+  let res;
 
-  const cached = cache(getProductByID)
-  const { results } = await cached({ id });
+  try{
+    res = await getProductByID({ id })
+  }catch(e){
+    console.log("Error here")
+    console.log(e)
+  }
 
   return {
-    title: results?.meta_title ?? "محصول اینترویو شاپ",
-    description: results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
+    title: res?.data?.results?.meta_title ?? "محصول اینترویو شاپ",
+    description: res?.data?.results?.meta_description ?? "این یک محصول فوق العاده از فروشگاه ماست!",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL}/${results?.id}`
+      canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL}/${res?.data?.results?.id}`
     }
   };
 }
 
-// https://nextjs.org/docs/app/api-reference/config/next-config-js/logging
-
 export default async function ProductDetailPage({ params }: any) {
   const { id } = await params;
-  const cached = cache(getProductByID)
-  const { results } = await cached({ id });
+  let body;
+
+  try{
+    body = await getProductByID({ id })
+  }catch(e: any){
+    if(e.status === 404){
+      return notFound();
+    }
+  }
+  
 
   return (
     <PageWrapper>
       <SectionWrapper>
         <ProductDetail
-        //  WIP -- handle 404 not found here
-          product={results}
+          product={body?.results}
         />
       </SectionWrapper>
-      {results.properties ? (
-        <SectionWrapper>
-          <ProductProperties
-            product={results}
-          />
-        </SectionWrapper>
-      ) : null}
+      <SectionWrapper>
+        <ProductProperties
+          product={body?.results}
+        />
+      </SectionWrapper>
     </PageWrapper>
   );
 }

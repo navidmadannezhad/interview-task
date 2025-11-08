@@ -1,5 +1,5 @@
 import { GetProductsRequestSearchParamsDTO, QueryArgs } from "@/src/models";
-import { getSearchParamsString } from "@/src/utils/commonUtils";
+import { getSearchParamsString, parseErrorResponse } from "@/src/utils/commonUtils";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
@@ -12,15 +12,24 @@ export const getProducts = async (queryArgs: QueryArgs<GetProductsRequestSearchP
     console.log(getTime(), "-- GET PRODUCTS BEING RUN --")
     const searchString = getSearchParamsString<GetProductsRequestSearchParamsDTO>(queryArgs.searchParams);
     const res = await fetch(`${SERVER_URL}/api/ecommerce/products?${searchString}`);
-    const data = await res.json();
 
-    return data;
+    if(res.status !== 200){
+        const errorBody = await parseErrorResponse(res);
+        throw errorBody;
+    }
+
+    const data = await res.json();
+    return data.body;
 }
 
 export const getProductByID = async (queryArgs: { id: number }) => {
-    console.log(getTime(), "-- GET PRODUCTSBYID BEING RUN --")
     const res = await fetch(`${SERVER_URL}/api/ecommerce/products/${queryArgs.id}`);
-    const data = await res.json();
 
-    return data;
+    if(res.status !== 200){
+        const errorBody = await parseErrorResponse(res);
+        throw errorBody;
+    }
+
+    const data = await res.json();
+    return data.body;
 }
