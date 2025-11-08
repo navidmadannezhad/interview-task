@@ -29,8 +29,9 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                     alt={props.product.title}
                     className={styles.product_card_img}
                     fetchPriority="high"
-                    // WIP -- define something that is compatible with image dimensions
-                    sizes="600px"
+                    loading="eager"
+
+                    sizes="300px"
                 />
             </Link>
             <div className={styles.product_card_content_wrapper}>
