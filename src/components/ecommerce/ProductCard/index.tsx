@@ -29,7 +29,7 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                     alt={props.product.title}
                     className={styles.product_card_img}
                     fetchPriority="high"
-                    loading="eager"
+                    quality={75}
 
                     sizes="300px"
                 />

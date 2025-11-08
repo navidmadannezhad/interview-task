@@ -23,7 +23,6 @@ const ImageWrapper: FC<ImageWrapperProps> = ({ className, ...rest }) => {
                 
                 width={100}
                 height={100}
-                quality={100}
 
                 { ...rest }
                 style={{ 
