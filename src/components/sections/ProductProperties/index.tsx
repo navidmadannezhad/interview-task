@@ -7,7 +7,7 @@ interface ProductPropertiesProps{
 };
 
 const ProductProperties: FC<ProductPropertiesProps> = (props) => {
-    const properties = props.product.properties ?? {};
+    const properties = props.product?.properties ?? {};
 
     return(
         <div

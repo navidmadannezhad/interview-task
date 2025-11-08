@@ -1,15 +1,15 @@
 "use client";
 
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, HTMLProps, ReactNode, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import styles from "./main.module.css";
 
-interface DrawerProps{
+interface DrawerProps extends Omit<HTMLProps<HTMLDivElement>, 'content'>{
     children: ReactNode;
     content: ReactNode;
 };
 
-const Drawer: FC<DrawerProps> = (props) => {
+const Drawer: FC<DrawerProps> = ({ children, content, className, ...rest }) => {
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
     const [collapsedState, setCollapsedState] = useState<boolean>(true)
 
@@ -30,13 +30,18 @@ const Drawer: FC<DrawerProps> = (props) => {
 
     return(
         <div
-            className={styles.drawerWrapper}
+            className={`
+                ${className}
+                ${styles.drawerWrapper}
+            `}
+            
+            { ...rest }
         >
             <div
                 className={styles.drawerBtnHander}
                 onClick={handleOpenDrawer}
             >
-                {props.children}
+                {children}
             </div>
             <div
                 className={`
@@ -49,9 +54,9 @@ const Drawer: FC<DrawerProps> = (props) => {
                 <MdClose
                     className={styles.closeIcon}
                     onClick={handleCloseDrawer}
-                    size={48}
+                    size={32}
                 />
-                {props.content}
+                {content}
             </div>
         </div>
     )

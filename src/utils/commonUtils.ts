@@ -1,3 +1,5 @@
+import { SimpleSearchParamsObject } from "../models";
+
 export const enToFaNum = (s: number | string): string | null => {
     if(s === undefined || s === null) return null;
 
@@ -13,4 +15,39 @@ export const humanizePrice = (price: number | undefined): string | null => {
     return enToFaNum(
         price.toLocaleString("fa-IR")
     )
+}
+
+export const getSearchParamsString = <T = SimpleSearchParamsObject>(obj: any): string => {
+    const searchParams = new URLSearchParams("");
+    // WIP -- type problem here
+    Object.keys(obj).map((key: string) => {
+        if(typeof obj[key] === "object"){
+            searchParams.set(key, obj[key].join(","))
+        }else{
+            searchParams.set(key, obj[key])
+        }
+    })
+
+    return searchParams.toString();
+}
+
+export const getSearchParamsObject = (url: string): SimpleSearchParamsObject => {
+    const paramsObject: SimpleSearchParamsObject = {};
+    if(
+        url?.split("?").length > 2 ||
+        url?.split("?").length === 1
+    ) return {};
+
+    const paramsString = url?.split("?")[1];
+    const searchParams = new URLSearchParams(paramsString);
+
+    for(const [key, value] of searchParams){
+        if(value.split(",").length > 1){
+            paramsObject[key] = value.split(",")
+        }else{
+            paramsObject[key] = value
+        }
+    }
+
+    return paramsObject;
 }

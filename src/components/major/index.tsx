@@ -3,3 +3,4 @@ export { default as SectionWrapper } from "./SectionWrapper";
 export { default as ImageWrapper } from "./ImageWrapper"; 
 export { default as Dropdown } from "./Dropdown"; 
 export { default as Drawer } from "./Drawer";
+export { default as EmptyWrapper } from "./EmptyWrapper";
