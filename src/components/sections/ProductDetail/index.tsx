@@ -35,6 +35,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                         className={styles.productImg}
                         alt={props.product?.title ?? "تصویر محصول"}
                         fetchPriority="high"
+                        loading="eager"
                         quality={75}
                         sizes="(min-width: 768px) 300px, 175px"
                     />
