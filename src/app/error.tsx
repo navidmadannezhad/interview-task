@@ -35,6 +35,7 @@ export default function Error({
             // Attempt to recover by trying to re-render the segment
             () => reset()
           }
+          aria-label="تلاش مجدد برای بارگذاری صفحه"
           style={{
             backgroundColor: "var(--primary-main)",
             borderRadius: 5,

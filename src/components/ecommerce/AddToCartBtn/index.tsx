@@ -67,6 +67,7 @@ const AddToCartBtn: FC<AddToCartBtnProps> = (props) => {
                                     ${styles.countIncreaseBtn}
                                 `}
                                 onClick={handleIncreaseCount}
+                                aria-label={`افزایش تعداد ${props.product.title}`}
                             >
                                 <MdAdd />
                             </button>
@@ -79,6 +80,7 @@ const AddToCartBtn: FC<AddToCartBtnProps> = (props) => {
                                     ${styles.countDecreaseBtn}
                                 `}
                                 onClick={handleDecreaseCount}
+                                aria-label={`کاهش تعداد ${props.product.title}`}
                             >
                                 <MdRemove />
                             </button>

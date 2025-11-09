@@ -7,7 +7,6 @@ import { CartItem, Product } from "@/src/models";
 import { useCart } from "@/src/services/store";
 import { EmptyWrapper, ImageWrapper } from "@/src/components/major";
 import { enToFaNum, humanizePrice } from "@/src/utils/commonUtils";
-import Link from "next/link";
 import toast from "react-hot-toast";
 
 interface CartContentProps{
@@ -71,7 +70,11 @@ const CartContent: FC<CartContentProps> = (props) => {
                                     </div>
                                 </div>
                                 <div className={styles.cartContentOperationsWrapper}>
-                                    <button className={styles.cartContentRowRemove} onClick={() => handleRemoveFromCart(cartItem.product)}>
+                                    <button 
+                                        className={styles.cartContentRowRemove} 
+                                        onClick={() => handleRemoveFromCart(cartItem.product)}
+                                        aria-label={`حذف ${cartItem.product.title} از سبد خرید`}
+                                    >
                                         <MdRemove
                                             color="var(--danger-contrast-text)"
                                         />
