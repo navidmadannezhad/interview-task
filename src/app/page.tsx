@@ -12,12 +12,13 @@ export default async function ProductPage() {
       searchParams: paginationInitialState
     });
   }catch{}
-  
+
   return (
     <PageWrapper>
       <SectionWrapper>
         <ProductsList
           products={body?.results}
+          count={body?.count}
         />
       </SectionWrapper>
     </PageWrapper>

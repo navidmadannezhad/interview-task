@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 
 interface ProductsListProps{
     products: Product[];
+    count: number;
 };
 
 const ProductsList: FC<ProductsListProps> = (props) => {
@@ -32,11 +33,6 @@ const ProductsList: FC<ProductsListProps> = (props) => {
             const { results } = await getProducts({
                 searchParams: paginationState
             })
-
-            if(results.length === 0) {
-                setProductsEnded(true);
-                return;
-            }
 
             setProducts(prev => ([
                 ...prev,
@@ -79,6 +75,11 @@ const ProductsList: FC<ProductsListProps> = (props) => {
             })()
         }
     }, [paginationModel.offset, paginationModel.limit])
+
+    useEffect(() => {
+        const isLastBatchOfProducts = products.length === props.count;
+        if(isLastBatchOfProducts) setProductsEnded(true)
+    }, [products])
 
     return(
         <div
