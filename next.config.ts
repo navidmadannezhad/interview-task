@@ -2,11 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  productionBrowserSourceMaps: true
+  productionBrowserSourceMaps: false
 };
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: true,
-});
-module.exports =
-  process.env.ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig;
+module.exports = nextConfig;
