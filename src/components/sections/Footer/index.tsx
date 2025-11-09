@@ -18,28 +18,28 @@ const Footer: FC<FooterProps> = (props) => {
                     <p
                         className={styles.footerMinorContentTitle}
                     >
-                        تیتر تست
+                        با اینترویوشاپ
                     </p>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        در اینترویوشاپ فروشنده شوید
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        تماس با اینترویوشاپ
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        فرصت های شغلی
                     </Link>
                 </div>
 
@@ -49,28 +49,28 @@ const Footer: FC<FooterProps> = (props) => {
                     <p
                         className={styles.footerMinorContentTitle}
                     >
-                        تیتر تست
+                        خدمات مشتری
                     </p>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        پرسش های متداول
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        روش های مرجوعی کالا
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        قوانین و شرایط استفاده
                     </Link>
                 </div>
 
@@ -80,28 +80,21 @@ const Footer: FC<FooterProps> = (props) => {
                     <p
                         className={styles.footerMinorContentTitle}
                     >
-                        تیتر تست
+                        راهنمای خرید
                     </p>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
+                        ثبت سفارش
                     </Link>
                     <Link
                         className={styles.footerMinorContentLink}
                         href="#"
                         prefetch={false}
                     >
-                        تست
-                    </Link>
-                    <Link
-                        className={styles.footerMinorContentLink}
-                        href="#"
-                        prefetch={false}
-                    >
-                        تست
+                        رویه های ارسال سفارش
                     </Link>
                 </div>
             </div>

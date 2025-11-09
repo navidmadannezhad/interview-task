@@ -10,8 +10,8 @@
 }
 
 .productNotAvailable{
-    color: var(--danger-contrast-text);
-    background-color: var(--danger-main);
+    color: var(--secondary-contrast-text);
+    background-color: var(--secondary-light);
 }
 
 .productAvailable{
