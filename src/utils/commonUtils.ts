@@ -54,7 +54,8 @@ export const getSearchParamsObject = (url: string): SimpleSearchParamsObject => 
 
 export const getTimeStampFromISOTime = (iso: string): number => {
     if(!iso) return 0;
-    const date = new Date(iso);
+    // Always parse as UTC to avoid timezone differences between environments
+    const date = new Date(iso + (iso.includes('T') && !iso.includes('Z') && !iso.includes('+') ? 'Z' : ''));
     return date.getTime();
 }
 

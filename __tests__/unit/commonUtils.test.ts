@@ -38,8 +38,8 @@ describe("Common Utility Functions", () => {
     })
 
     test('Get Time Stamp from ISO Time', () => {
-        const testTime = "2025-11-08T16:00:00";
-        const correctResult = 1762605000000;
+        const testTime = "2025-11-08T16:00:00Z";
+        const correctResult = 1762617600000;
 
         const result = getTimeStampFromISOTime(testTime);
         expect(result).toEqual(correctResult);
