@@ -83,3 +83,36 @@ body {
 h1{
   font-size: 1rem;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #c2d2e4;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #0a4c95;
+}
+
+/* Firefox */
+*{
+  scrollbar-color: 'var(--primary-main)';
+  scrollbar-width: thin;
+}
+
+/* Chrome */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: 'var(--secondary-ultraLight)';
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: 'var(--primary-main)';
+    border-radius: 10px;
+}

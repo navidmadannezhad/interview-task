@@ -33,7 +33,7 @@ const ImageWrapper: FC<ImageWrapperProps> = ({ className, ...rest }) => {
                 blurDataURL={source as string}
                 src={source}
                 alt={rest.alt ?? "تصویر"}
-                onLoadingComplete={() => setImgLoading(false)}
+                onLoad={() => setImgLoading(false)}
             />
 
             {imgLoading ? (
