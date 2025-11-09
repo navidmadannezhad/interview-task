@@ -33,7 +33,7 @@ const Dropdown: FC<DropdownProps> = ({ children, content, className, ...rest }) 
 
             className={`
                 ${className}
-                ${styles.drawerWrapper}
+                ${styles.dropdownWrapper}
             `}
             
             { ...rest }

@@ -26,6 +26,7 @@
 .footerMinorContentTitle{
     font-size: 1.1rem;
     color: var(--primary-main);
+    font-weight: 700;
 }
 
 .footerMinorContentLink{

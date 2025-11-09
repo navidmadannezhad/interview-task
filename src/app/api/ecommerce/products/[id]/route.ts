@@ -7,8 +7,6 @@ export async function GET(request: Request, context: RouteContext<'/api/ecommerc
     const params = await context?.params;
     const { id }  = params;
 
-    console.log("server running")
-
     try{
         const filePath = path.join(process.cwd(), "public", "data", "products.json");
         const fileContent = fs.readFileSync(filePath, "utf-8");

@@ -7,6 +7,8 @@ import { CartItem, Product } from "@/src/models";
 import { useCart } from "@/src/services/store";
 import { EmptyWrapper, ImageWrapper } from "@/src/components/major";
 import { enToFaNum, humanizePrice } from "@/src/utils/commonUtils";
+import Link from "next/link";
+import toast from "react-hot-toast";
 
 interface CartContentProps{
     items: CartItem[];
@@ -19,7 +21,12 @@ const CartContent: FC<CartContentProps> = (props) => {
         removeFromCart(product)
     }, []);
 
-    const handleEndPurchase = () => {};
+    const handleEndPurchase = () => {
+        const toastId = toast.loading("درحال انتقال به درگاه پرداخت...")
+        setTimeout(() => {
+            toast.success("اگه قسمت بود قبول شدم در آینده این فیچر هم میزنیم کنار هم :)", { id: toastId, duration: 5000 })
+        }, 1000)
+    };
 
     const priceSum = useMemo(() => {
         return props.items.reduce((current, next) => (current + (next.product.discount_price ?? next.product.main_price) * next.count), 0)
@@ -45,7 +52,9 @@ const CartContent: FC<CartContentProps> = (props) => {
                                     alt={cartItem.product?.title ?? "تصویر محصول"}
                                 />
                                 <div className={styles.cartContentWrapper}>
-                                    <p className={styles.cartContentRowTitle}>
+                                    <p 
+                                        className={styles.cartContentRowTitle}
+                                    >
                                         {cartItem.product.title}
                                     </p>
                                     <div className={styles.cartDetailsWrapper}>

@@ -14,8 +14,6 @@ interface ProductsListProps{
     products: Product[];
 };
 
-// const ProductCard = dynamic(() => import('../../ecommerce/ProductCard'))
-
 const ProductsList: FC<ProductsListProps> = (props) => {
     const productsContainerRef = useRef<HTMLDivElement>(null);
     const [products, setProducts] = useState<Product[]>(props.products);
