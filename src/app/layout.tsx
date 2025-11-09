@@ -7,39 +7,39 @@ import dynamic from "next/dynamic";
 const IRANSansX = localFont({
   src: [
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Thin.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Thin.woff",
       weight: "100"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-UltraLight.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-UltraLight.woff",
       weight: "200"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Light.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Light.woff",
       weight: "300"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Regular.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Regular.woff",
       weight: "400"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Medium.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Medium.woff",
       weight: "500"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-DemiBold.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-DemiBold.woff",
       weight: "600"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Bold.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Bold.woff",
       weight: "700"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-ExtraBold.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-ExtraBold.woff",
       weight: "800"
     },
     {
-      path: "../../public/fonts/IRANSansX/IRANSansX-Black.ttf",
+      path: "../../public/fonts/IRANSansX/IRANSansXFaNum-Black.woff",
       weight: "900"
     },
   ],
