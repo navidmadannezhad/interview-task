@@ -2,10 +2,10 @@ import { PaginationSearhParams, Response } from "./major";
 
 export interface Product {
     id: number;
-    title: string;
+    name: string;
     main_price: number;
     discount_price?: number;
-    thumbnail: string;
+    imageUrl: string;
     short_description: string;
     long_description: string;
     meta_title: string;

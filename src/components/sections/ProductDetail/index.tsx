@@ -31,9 +31,9 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                     className={styles.productImgWrapper}
                 >
                     <ImageWrapper
-                        src={props.product?.thumbnail}
+                        src={props.product?.imageUrl}
                         className={styles.productImg}
-                        alt={props.product?.title ?? "تصویر محصول"}
+                        alt={props.product?.name ?? "تصویر محصول"}
                         fetchPriority="high"
                         loading="eager"
                         quality={75}
@@ -48,7 +48,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                 <h1
                     className={styles.productTitle}
                 >
-                    {props.product?.title}
+                    {props.product?.name}
                 </h1>
                 <div
                     className={`
