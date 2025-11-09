@@ -36,7 +36,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
                         alt={props.product?.title ?? "تصویر محصول"}
                         fetchPriority="high"
                         quality={75}
-                        sizes="(min-width: 768px) 600px, 350px"
+                        sizes="(min-width: 768px) 300px, 175px"
                     />
                 </div>
             </div>

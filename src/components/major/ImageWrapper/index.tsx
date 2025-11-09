@@ -11,7 +11,7 @@ const IMAGE_PLACEHOLDER_SOURCE: string = "/images/thumbnail.png";
 
 const ImageWrapper: FC<ImageWrapperProps> = ({ className, ...rest }) => {
     const [source, setSource] = useState<ImageProps["src"]>(rest.src);
-    // const [imgLoading, setImgLoading] = useState<boolean>(true);
+    const [imgLoading, setImgLoading] = useState<boolean>(true);
 
     return(
         <div className={`
@@ -33,12 +33,12 @@ const ImageWrapper: FC<ImageWrapperProps> = ({ className, ...rest }) => {
                 blurDataURL={source as string}
                 src={source}
                 alt={rest.alt ?? "تصویر"}
-                // onLoadingComplete={() => setImgLoading(false)}
+                onLoadingComplete={() => setImgLoading(false)}
             />
 
-            {/* {imgLoading ? (
+            {imgLoading ? (
                 <div className={styles.imgSkeleton} />
-            ) : null} */}
+            ) : null}
         </div>
     )
 }
