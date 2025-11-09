@@ -59,7 +59,6 @@ export const getTimeStampFromISOTime = (iso: string): number => {
 }
 
 export const parseErrorResponse = async (res: Response): Promise<ErrorResponse> => {
-    console.log(res)
     const data = await res.json();
     return {
         message: data.body,
