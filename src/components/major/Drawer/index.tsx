@@ -37,13 +37,13 @@ const Drawer: FC<DrawerProps> = ({ children, content, className, ...rest }) => {
             
             { ...rest }
         >
-            <div
+            <button
                 className={styles.drawerBtnHander}
                 onClick={handleOpenDrawer}
                 aria-label="باز کردن منو"
             >
                 {children}
-            </div>
+            </button>
             <div
                 className={`
                     ${styles.drawerContentWrapper}
