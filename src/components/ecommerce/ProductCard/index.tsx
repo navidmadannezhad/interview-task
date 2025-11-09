@@ -26,8 +26,8 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                 prefetch={false}
             >
                 <ImageWrapper
-                    src={props.product.thumbnail}
-                    alt={props.product.title}
+                    src={props.product.imageUrl}
+                    alt={props.product.name}
                     className={styles.product_card_img}
                     fetchPriority="high"
                     quality={75}
@@ -39,7 +39,7 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                 <div 
                     className={styles.product_card_title}
                 >
-                    {props.product.title}
+                    {props.product.name}
                 </div>
                 <div 
                     className={`

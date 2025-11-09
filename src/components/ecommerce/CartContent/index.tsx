@@ -45,16 +45,16 @@ const CartContent: FC<CartContentProps> = (props) => {
                                 key={cartItem.product.id}
                             >
                                 <ImageWrapper
-                                    src={cartItem.product.thumbnail}
+                                    src={cartItem.product.imageUrl}
                                     className={styles.itemThumbnail}
                                     sizes="80px"
-                                    alt={cartItem.product?.title ?? "تصویر محصول"}
+                                    alt={cartItem.product?.name ?? "تصویر محصول"}
                                 />
                                 <div className={styles.cartContentWrapper}>
                                     <p 
                                         className={styles.cartContentRowTitle}
                                     >
-                                        {cartItem.product.title}
+                                        {cartItem.product.name}
                                     </p>
                                     <div className={styles.cartDetailsWrapper}>
                                         <p className={styles.itemDetail}>
@@ -73,7 +73,7 @@ const CartContent: FC<CartContentProps> = (props) => {
                                     <button 
                                         className={styles.cartContentRowRemove} 
                                         onClick={() => handleRemoveFromCart(cartItem.product)}
-                                        aria-label={`حذف ${cartItem.product.title} از سبد خرید`}
+                                        aria-label={`حذف ${cartItem.product.name} از سبد خرید`}
                                     >
                                         <MdRemove
                                             color="var(--danger-contrast-text)"
