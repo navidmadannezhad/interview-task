@@ -13,7 +13,6 @@
     direction: ltr;
 }
 
-/* WIP -- NOT WORKING! */
 @media only screen and (min-width: 768px){
     .header{
         justify-content: space-between;
