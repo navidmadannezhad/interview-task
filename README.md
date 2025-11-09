@@ -84,6 +84,25 @@ State Management System
 
 در صفحه تک محصول، فقط از SSR استفاده میکنیم.
 
+## یسری بنچ مارک
+
+بنچ مارک های زیر توسط Google Lighthouse در کروم جمع آوری شدن.
+
+این اندازه گیری ها میتونن به فاکتور های مختلفی نظیر نسخه مرورگر، سرعت پاسخ بک اند و همچنین سیستم هاستینگ که در اینجا vercel هست مربوط باشن و لزوما فقط فرانت روشون اثر نداشته باشه. اما بازم مقیاس های مناسبی برای قضاوت در رابطه با بهینه بودن سیستمه.
+
+![App Screenshot](https://navidbucket.storage.iran.liara.space/desktop-detail)
+صفحه جزییات محصول دسکتاپ
+
+![App Screenshot](https://navidbucket.storage.iran.liara.space/desktop-products)
+صفحه محصولات دسکتاپ
+
+![App Screenshot](https://navidbucket.storage.iran.liara.space/mobile-products)
+صفحه محصولات موبایل
+
+![App Screenshot](https://navidbucket.storage.iran.liara.space/mobile-detai)
+صفحه جزییات محصول موبایل
+
+
 
 ## سخن نهایی!
 
