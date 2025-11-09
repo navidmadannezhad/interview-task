@@ -116,6 +116,7 @@ const ProductsList: FC<ProductsListProps> = (props) => {
                 <button
                     className={styles.manualPaginationActive}
                     onClick={handleFetchMoreProducts}
+                    aria-label="بارگذاری محصولات"
                 >
                     دریافت محصولات بیشتر
                 </button>
