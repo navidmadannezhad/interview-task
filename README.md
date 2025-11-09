@@ -90,15 +90,19 @@ State Management System
 
 این اندازه گیری ها میتونن به فاکتور های مختلفی نظیر نسخه مرورگر، سرعت پاسخ بک اند و همچنین سیستم هاستینگ که در اینجا vercel هست مربوط باشن و لزوما فقط فرانت روشون اثر نداشته باشه. اما بازم مقیاس های مناسبی برای قضاوت در رابطه با بهینه بودن سیستمه.
 <img width="738" height="220" alt="image" src="https://github.com/user-attachments/assets/fba4848c-a613-4754-8d87-64b3f2b316af" />
+
 صفحه جزییات محصول دسکتاپ
 
 <img width="738" height="220" alt="image" src="https://github.com/user-attachments/assets/8509cf32-4017-4a4a-bf61-5cbaa198b3a1" />
+
 صفحه محصولات دسکتاپ
 
 <img width="738" height="220" alt="image" src="https://github.com/user-attachments/assets/d829edda-540f-4c7b-ada6-e676de46ba4f" />
+
 صفحه محصولات موبایل
 
 <img width="738" height="220" alt="image" src="https://github.com/user-attachments/assets/62c19f82-c8d5-4886-aaa4-3be98d4a9cef" />
+
 صفحه جزییات محصول موبایل
 
 
