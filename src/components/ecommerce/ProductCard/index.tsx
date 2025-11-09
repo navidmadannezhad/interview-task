@@ -32,7 +32,7 @@ const ProductCard: FC<ProductCardProps> = memo((props) => {
                     fetchPriority="high"
                     quality={75}
                     loading="eager"
-                    sizes="300px"
+                    sizes="150px"
                 />
             </Link>
             <div className={styles.product_card_content_wrapper}>
