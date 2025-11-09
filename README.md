@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# فروشگاه کوچیک اینترویوشاپ!
 
-First, run the development server:
+این یه تسک کوچیک برای مصاحبه هست که خب، امیدوارم هم از خوندن این readme و هم از مطالعه کد ها لذت ببرید :)
+
+همچنین پروژه به شکل لایو رو vercel دیپلوی شده که میتونید مشاهده کنید
+
+[لینک پروداکشن](https://interview-task-two-iota.vercel.app/)
+
+خب بریم برای توضیحات!
+
+
+
+
+## اجرای پروژه
+
+اول پروژه رو کلون کنید
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/navidmadannezhad/interview-task.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+وارد روت پروژه بشید
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd interview-task
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+پکیج ها و این حرفارو نصب کنید
 
-## Learn More
+```bash
+  pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+مقادیر env رو تنظیم کنید
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+    NEXT_PUBLIC_SERVER_URL=<آدرسی که پروژه روش بالا میاد>
+    NEXT_PUBLIC_CLIENT_URL=<آدرسی که پروژه روش بالا میاد>
+```
+مثلا http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+و بسم الله! پروژه رو ران کنید
 
-## Deploy on Vercel
+```bash
+  pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ساختار پروژه
+
+این پروژه از آخرین نسخه Next js استفاده میکنه و بر اساس App Router چیده شده.
+
+نحوه فولدربندی پروژه به شکل Feature-based design هست، که کمک شایانی به توسعه پذیر بودن پروژه میکنه.
+
+بر اساس این دیزاین و همچنین نیازمندی ها، ما فقط با یک مفهوم ecommerce روبرو هستیم که شامل کامپوننت ها، توابع کمکی و سرویس های مربوط به خودش هست. در کنار مفهوم ها، عموما با فایل ها و فولدرهایی نظیر major روبرو هستیم که وظیفه نگهداری کدهای عمومی تر رو بر عهده دارن.
+
+در پروژه از تکنولوژی های زیر استفاده شده:
+
+Styling System
+
+برای استایل دهی، مطابق با روش ترجیحی در داکیومنت از CSS Modules استفاده شده. همچنین به خاطر کم بودن صفحات و در نتیجه کم بودن کامپوننت ها، ترجیح داده شد از کامپوننت لایبری خاصی استفاده نشه که خروجی پروژه سبک بمونه.
+
+Icon Library
+
+برای آیکون لایبری از react-icons استفاده شد. دلیل انتخابم کامیونیتی و پشتیبانی مناسب از این لایبری هست.
+
+State Management System
+
+برای مدیریت استیت در پروژه از Zustand استفاده شده. کتابخونه جذابی هست و خیلی از کمبود های انتخاب هایی نظیر Context API خود ری اکت رو جبران میکنه.
+
+
+
+
+## یک سوال مهم!
+
+#### استراتژی دریافت داده
+
+در این پروژه از ترکیب دو استراتژی SSR و CSR استفاده شده.
+
+در صفحه محصولات (که بسیار صفحه مهمی برای تجربه کاربری به حساب میاد) ما با این چالش روبرو هستیم که تعداد داده ها زیاده. از طرفی، دریافت داده ها بدون داشتن یک مکانیزم Pagination مناسب غیرممکنه.
+
+راه حل به این شکل هست که ما داده های اولیه رو، هم به هدف بهینه بودن صفحه برای خزنده های گوگل و هم برای سرعت لود بالاتر، به شکل SSR لود میکنیم و سپس، باقی مونده داده هارو به شکل CSR دریافت میکنیم.
+
+در صفحه تک محصول، فقط از SSR استفاده میکنیم.
+
+
+## سخن نهایی!
+
+این پروژه ریزه کاری زیاد داره، و مسلما در کنار ریزه کاری هاش و خوبی هاش، باگ هایی هم وجود خواهد داشت. اگر پیشنهاد یا انتقادی داشتید، خوشحال میشم ایشو هاتون رو ببینم :)
