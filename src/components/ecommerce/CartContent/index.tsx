@@ -17,9 +17,9 @@ interface CartContentProps{
 const CartContent: FC<CartContentProps> = (props) => {
     const removeFromCart = useCart(state => state.removeFromCart);
 
-    const handleRemoveFromCart = useCallback((product: Product) => {
+    const handleRemoveFromCart = (product: Product) => {
         removeFromCart(product)
-    }, []);
+    }
 
     const handleEndPurchase = () => {
         const toastId = toast.loading("درحال انتقال به درگاه پرداخت...")
